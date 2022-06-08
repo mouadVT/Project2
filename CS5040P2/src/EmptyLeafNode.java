@@ -18,6 +18,7 @@ public class EmptyLeafNode implements Node {
 
     /**
      * Constructs a Flyweight Private constructor for Singleton pattern. Can
+     * 
      * only be instantiated internally
      * 
      * @see EmptyLeafNode#getInstance()
@@ -43,6 +44,5 @@ public class EmptyLeafNode implements Node {
         return new LeafNode(sequence);
     }
 
-    /**
-     * Attempting to remove an empty leaf node means that we did not find
+    /*** Attempting to remove an empty leaf node means that we did not find
 

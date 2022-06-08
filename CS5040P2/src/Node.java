@@ -18,7 +18,7 @@
 // letter of this restriction.
 
 /**
- * @author mouad
+ * @author mouad and james
  * @version (2022-06-10)
  * @param <T>
  */
