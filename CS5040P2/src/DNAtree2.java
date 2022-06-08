@@ -2,12 +2,15 @@
  * 
  */
 
+//JAMES
+//test
+
 
 /**
  * @author 1alim
  *
  */
-public class DNAtree {
+public class DNAtree2 {
 
     /**
      * @param args
