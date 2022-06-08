@@ -10,7 +10,7 @@
  * @author 1alim
  *
  */
-public class DNAtree2 {
+public class DNAtree {
 
     /**
      * @param args

@@ -1,48 +1,28 @@
 
-public class EmptyLeafNode implements Node {
-
-    private static EmptyLeafNode flyweight = null; // Single flyweight for all
-                                                    // empty leaf nodes
+interface Baseclass {
 
     /**
-     * Factory method to access flyweight
      * 
-     * @return
      */
-    public static EmptyLeafNode getInstance() {
-        if (flyweight == null) {
-            flyweight = new EmptyLeafNode();
-        }
-        return flyweight;
-    }
+    public void insert();
+
 
     /**
-     * Constructs a Flyweight Private constructor for Singleton pattern. Can
      * 
-     * only be instantiated internally
-     * 
-     * @see EmptyLeafNode#getInstance()
      */
-    private EmptyLeafNode() {
-        // empty constructor
-    }
+    public void print();
+
 
     /**
-     * Print representation of empty leaf node
+     * 
      */
-    @Override
-    public void print() {   }
+
+    public void search();
+
 
     /**
-     * Only called when an empty leaf-node. Replace self with new non-empty leaf
-     * node (SequenceNode)
      * 
-     * @return the new SequenceNode that will replace this Node in the tree
      */
-    @Override
-    public Node insert(SavedSequence sequence) {
-        return new LeafNode(sequence);
-    }
+    public void remove();
 
-    /*** Attempting to remove an empty leaf node means that we did not find
-
+}
