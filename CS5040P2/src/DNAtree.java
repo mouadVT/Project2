@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -6,9 +7,12 @@ import java.util.Scanner;
  * 
  * 
  */
+=======
+//Mouad
+>>>>>>> branch 'master' of https://github.com/mouadVT/Project2.git
 
 /**
- * @author 1alim
+ *
  *
  */
 public class DNAtree {
