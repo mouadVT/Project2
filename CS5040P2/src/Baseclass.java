@@ -1,28 +1,28 @@
 
-interface Baseclass {
+interface Baseclass<T>{
 
     /**
      * 
      */
-    public void insert();
-
-
-    /**
-     * 
-     */
-    public void print();
+    public void insert(T entry);
 
 
     /**
      * 
      */
-
-    public void search();
+    public T print();
 
 
     /**
      * 
      */
-    public void remove();
+
+    public void search(T entry);
+
+
+    /**
+     * 
+     */
+    public T remove();
 
 }

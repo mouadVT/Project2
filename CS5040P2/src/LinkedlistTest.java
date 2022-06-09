@@ -2,7 +2,7 @@ import student.TestCase;
 
 public class LinkedlistTest extends TestCase {
     
-   private Linkedlist<String> list;
+   private Node<String> list;
     /**
      * setUp method 
      */

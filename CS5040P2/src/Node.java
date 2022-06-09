@@ -6,9 +6,9 @@
  * @author 1alim
  *@param <T>
  */
-public class Linkedlist<T> {
+public class Node<T> {
     private T data;
-    private Linkedlist<T> next;
+    private Node<T> next;
 
     /**
      * constructor with one parameter
@@ -16,7 +16,7 @@ public class Linkedlist<T> {
      * @param dataPortion
      *            the node would take
      */
-    public Linkedlist(T dataPortion) {
+    public Node(T dataPortion) {
         this.data = dataPortion;
         this.next = null;
     }
@@ -30,7 +30,7 @@ public class Linkedlist<T> {
      * @param dataPortion
      *            the data to put inside the node
      */
-    public Linkedlist(T dataPortion, Linkedlist<T> nextNode) {
+    public Node(T dataPortion, Node<T> nextNode) {
         this(dataPortion);
         next = nextNode;
     }
@@ -60,7 +60,7 @@ public class Linkedlist<T> {
      *
      * @return the next node
      */
-    public Linkedlist<T> getNext() {
+    public Mode<T> getNext() {
         return next;
     }
 
@@ -71,7 +71,7 @@ public class Linkedlist<T> {
      * @param nextNode
      *            to place as next node
      */
-    public void setNext(Linkedlist<T> nextNode) {
+    public void setNext(Node<T> nextNode) {
         next = nextNode;
     }
 }
