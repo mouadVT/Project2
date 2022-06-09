@@ -7,7 +7,7 @@
  * @author Mouad Ait Taleb Ali (mouad)
  * @version 06/08/2022
  */
-public class flyweightnode implements Baseclass {
+public class flyweightnode<T> implements Baseclass<T> {
     
     private static flyweightnode fw;
     

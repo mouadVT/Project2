@@ -4,7 +4,7 @@ interface Baseclass<T>{
     /**
      * 
      */
-    public void insert(T entry);
+    public void insert(T entry, T depth);
 
 
     /**
