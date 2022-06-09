@@ -60,7 +60,7 @@ public class Node<T> {
      *
      * @return the next node
      */
-    public Mode<T> getNext() {
+    public Node<T> getNext() {
         return next;
     }
 
