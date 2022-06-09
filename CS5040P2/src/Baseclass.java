@@ -3,7 +3,7 @@
  */
 public interface Baseclass<T> {
     /**
-     * Inserts sequence into node.
+     * Inserts sequence into tree node.
      */
     public void insert(String entry, int depth);
 
