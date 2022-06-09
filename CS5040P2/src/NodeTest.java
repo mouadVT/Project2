@@ -1,20 +1,20 @@
 import student.TestCase;
 
-public class LinkedlistTest extends TestCase {
+public class NodeTest extends TestCase {
     
-   private Node<String> list;
+   private Node<String> node;
     /**
      * setUp method 
      */
     public void setUp() {
-        list = new Linkedlist<String>("A");
+        node = new Node<String>("A");
         
     }
     /**
      * 
      */
     public void testGetData() {
-        String st = list.getData();
+        String st = node.getData();
         assertTrue(st.equals("A"));
         
     }
