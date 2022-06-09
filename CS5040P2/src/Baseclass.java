@@ -1,28 +1,27 @@
-
-interface Baseclass<T>{
-
+/**
+ * DNA tree node interface that defines operations for nodes.
+ */
+public interface Baseclass<T> {
     /**
-     * 
+     * Inserts sequence into node.
      */
-    public void insert(T entry);
-
-
-    /**
-     * 
-     */
-    public T print();
+    public void insert(String entry, int depth);
 
 
     /**
-     * 
+     * Prints out DNA tree.
      */
-
-    public void search(T entry);
+    public String print();
 
 
     /**
-     * 
+     * Finds all sequences that match the parameter.
      */
-    public T remove();
+    public void search(String entry);
 
+
+    /**
+     * Removes a sequence from the tree.
+     */
+    public String remove();
 }
