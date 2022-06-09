@@ -15,7 +15,7 @@ public interface Baseclass {
 
 
     /**
-     * Finds all sequences that match the parameter.
+     * Finds all sequences that match the given sequence.
      */
     public void search(String entry);
 
