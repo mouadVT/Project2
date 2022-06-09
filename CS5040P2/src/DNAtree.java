@@ -1,10 +1,8 @@
-/**
- * 
- */
+//Mouad
 
 
 /**
- * @author 1alim
+ *
  *
  */
 public class DNAtree {
