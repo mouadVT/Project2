@@ -1,7 +1,7 @@
 /**
  * DNA tree node interface that defines operations for nodes.
  */
-public interface Baseclass<T> {
+public interface Baseclass {
     /**
      * Inserts sequence into tree node.
      */
