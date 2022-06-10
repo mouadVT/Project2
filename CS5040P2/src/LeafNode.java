@@ -10,7 +10,7 @@
  */
 public class LeafNode implements Baseclass {
     
-    private String data;
+    private Linkedlist<String> data;
     private int depth;
     
     /**
@@ -62,7 +62,7 @@ public class LeafNode implements Baseclass {
             System.out.println("Sequence " + data + " already exists");
         }
         else {
-            Internalnode intNode = new InternalNode();
+            Internalnode intNode = new Internalnode();
             
             // new sequence being inserted
             intNode.insert(seq, origDepth + 1);

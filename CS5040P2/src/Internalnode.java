@@ -1,5 +1,5 @@
 //Mouad
-public class Internalnode extends Baseclass {
+public class Internalnode implements Baseclass {
 
     private flyweightnode a;
     private flyweightnode c;
