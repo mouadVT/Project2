@@ -23,5 +23,5 @@ public interface Baseclass {
     /**
      * Removes a sequence from the tree.
      */
-    public String remove();
+    public String remove(String entry);
 }
