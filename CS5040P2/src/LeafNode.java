@@ -9,21 +9,39 @@
  */
 public class LeafNode implements Baseclass {
     
-    private Linkedlist<String> data;
+    private String data;
+    private int depth;
     
     /**
      * LeafNode constructor.
      */
-    public LeafNode(Linkedlist<String> seq) {
+    public LeafNode(String seq, int d) {
         this.data = seq;
+        this.depth = d;
     }
     
     
     /**
      * Returns data (sequence) in node.
      */
-    public Linkedlist<String> getSeq() {
+    public String getSeq() {
         return data;
+    }
+    
+    
+    /**
+     * Returns depth of node.
+     */
+    public int getDepth() {
+        return depth;
+    }
+    
+    
+    /**
+     * Sets depth of leaf node.
+     */
+    public void setDepth(int d) {
+        depth = d;
     }
     
     
@@ -31,18 +49,26 @@ public class LeafNode implements Baseclass {
      * Inserts sequence into leaf node
      * and converts leaf node into internal node.
      * 
-     * @param seq (Linked list of DNA sequence)
+     * @param seq (String of DNA sequence)
      */
     @Override
-    public void insert(Linkedlist<String> seq) {
-        Linkedlist<String> data = getSeq();
+    public void insert(String seq, int depth) {
+        String data = getSeq();
+        int origDepth = getDepth();
         
         // sequence already exists
-        if (seq == data) {
-            System.out.println("Sequence " + data.toString() + " already exists");
+        if (seq.equals(data)) {
+            System.out.println("Sequence " + data + " already exists");
         }
         else {
-          //Internalnode intNode = new InternalNode();
+            Internalnode intNode = new InternalNode();
+            
+            // new sequence being inserted
+            intNode.insert(seq, origDepth + 1);
+            // original leaf node moves down
+            intNode.insert(data, origDepth + 1);
+            
+            System.out.println("sequence " + seq + " inserted at level " + depth);
         }
     }
 
@@ -51,25 +77,27 @@ public class LeafNode implements Baseclass {
      * Prints out DNA sequence of leaf node.
      */
     @Override
-    public void print() {
-        
+    public String print() {
+        System.out.println(data);
+        return data;
     }
 
 
     /**
-     * 
+     * Finds all sequences that match the given sequence.
      */
     @Override
-    public void search() {
-     // TODO Auto-generated method stub
+    public void search(String seq) {
+        // TODO Auto-generated method stub
     }
 
 
     /**
-     * 
+     * Removes a sequence from the tree.
      */
     @Override
-    public void remove() {
-     // TODO Auto-generated method stub
+    public String remove(String seq) {
+        // TODO Auto-generated method stub
+        return seq;
     }
 }

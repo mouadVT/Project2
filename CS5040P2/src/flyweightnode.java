@@ -9,13 +9,13 @@
  */
 public class flyweightnode implements Baseclass {
     
-    private static flyweightnode fw;
+    private static flyweightnode fw; //maybe initialize in DNAtree?
     
     /**
      * Default constructor.
      */
     public flyweightnode() {
-        fw = new flyweightnode();
+        
     }
 
     
@@ -26,8 +26,9 @@ public class flyweightnode implements Baseclass {
      * @param seq (Linked list of DNA sequence)
      */
     @Override
-    public void insert(Linkedlist<String> seq) {
-        
+    public void insert(String seq, int depth) {
+        LeafNode leaf = new LeafNode(seq, depth);
+        System.out.println("sequence " + seq + " inserted at level " + depth);
     }
 
 
@@ -35,22 +36,27 @@ public class flyweightnode implements Baseclass {
      * Prints out "E" for empty leaf node.
      */
     @Override
-    public void print() {
+    public String print() {
         System.out.println("E");
+        return "E";
     }
 
 
+    /**
+     * Finds all sequences that match the given sequence.
+     */
     @Override
-    public void search() {
+    public void search(String seq) {
         // TODO Auto-generated method stub
-
     }
 
 
+    /**
+     * Removes a sequence from the tree.
+     */
     @Override
-    public void remove() {
+    public String remove(String seq) {
         // TODO Auto-generated method stub
-
+        return seq;
     }
-
 }
