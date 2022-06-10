@@ -1,9 +1,9 @@
-/**
- * 
- */
+
 
 /**
- * @author 1alim
+ * @author James Jang (jangwool)
+ * @author Mouad Ait Taleb Ali (mouad)
+ * @version 06/08/2022
  *@param <T>
  */
 public class Node<T> {

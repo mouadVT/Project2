@@ -1,11 +1,11 @@
 //Mouad
 public class Internalnode extends Baseclass {
 
-    private flyweightnode<T> a;
-    private flyweightnode<T> c;
-    private flyweightnode<T> g;
-    private flyweightnode<T> t;
-    private flyweightnode<T> $;
+    private flyweightnode a;
+    private flyweightnode c;
+    private flyweightnode g;
+    private flyweightnode t;
+    private flyweightnode $;
     
     /**
      * @param a
@@ -15,15 +15,15 @@ public class Internalnode extends Baseclass {
      * @param $
      */
     public Internalnode() {
-        this.a = new flyweightnode<T>() ;
-        this.c = new flyweightnode<T>();
-        this.g = new flyweightnode<T>();
-        this.t = new flyweightnode<T>();
-        this.$ = new flyweightnode<T>();
+        this.a = new flyweightnode() ;
+        this.c = new flyweightnode();
+        this.g = new flyweightnode();
+        this.t = new flyweightnode();
+        this.$ = new flyweightnode();
     }
 
     @Override
-    public void insert(T entry, T depth) {
+    public void insert(String entry, int depth) {
         
     }
 
@@ -31,7 +31,7 @@ public class Internalnode extends Baseclass {
      * it should  perform a preorder traversal of the tree
      */
     @Override
-    public T print() {
+    public String print() {
         // TODO Auto-generated method stub
         return null;
     }
