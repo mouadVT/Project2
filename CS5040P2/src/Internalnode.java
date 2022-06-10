@@ -1,5 +1,5 @@
 //Mouad
-public class Internalnode<T> implements Baseclass<T> {
+public class Internalnode extends Baseclass {
 
     private flyweightnode<T> a;
     private flyweightnode<T> c;
@@ -27,6 +27,9 @@ public class Internalnode<T> implements Baseclass<T> {
         
     }
 
+    /**
+     * it should  perform a preorder traversal of the tree
+     */
     @Override
     public T print() {
         // TODO Auto-generated method stub

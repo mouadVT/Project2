@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 /**
  *
- *
+ * All DNA tree operations must be implemented recursively
  */
-public class DNAtree {
+public class DNAtree  {
 
     /**
      * @param args

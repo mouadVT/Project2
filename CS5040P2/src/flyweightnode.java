@@ -7,7 +7,7 @@
  * @author Mouad Ait Taleb Ali (mouad)
  * @version 06/08/2022
  */
-public class flyweightnode<T> implements Baseclass<T> {
+public class flyweightnode<T> implements Baseclass {
     
     private static flyweightnode fw; //maybe initialize in DNAtree?
     

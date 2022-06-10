@@ -1,6 +1,7 @@
 // James
 
 /**
+ *  The DNA sequences stored in the leaf nodes may be implemented using a linked list
  * LeafNode class.
  * 
  * @author James Jang (jangwool)
