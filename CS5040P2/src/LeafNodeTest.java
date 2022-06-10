@@ -10,7 +10,7 @@ import student.TestCase;
 public class LeafNodeTest extends TestCase {
     
     private LeafNode leaf;
-    private Linkedlist<String> seq;
+    private String seq = "ACGT";
     
     /**
      * Sets up each test method.
@@ -18,7 +18,7 @@ public class LeafNodeTest extends TestCase {
     public void setUp() {
         
         
-        leaf = new LeafNode(seq);
+        leaf = new LeafNode(seq, 0);
     }
     
     
@@ -26,7 +26,7 @@ public class LeafNodeTest extends TestCase {
      * Tests getSeq() method.
      */
     public void testGetSeq() {
-        Linkedlist<String> seq = leaf.getSeq();
+        String seq = leaf.getSeq();
         assertEquals(seq, leaf.getSeq());
     }
     
@@ -43,8 +43,6 @@ public class LeafNodeTest extends TestCase {
      * Tests print() method.
      */
     public void testPrint() {
-        // maybe have Baseclass print() return String or LList?
-        
-        //assertEquals("ACGT", leaf.print());
+        assertEquals("ACGT", leaf.print());
     }
 }

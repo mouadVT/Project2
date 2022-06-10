@@ -31,8 +31,6 @@ public class flyweightnodeTest extends TestCase {
      * Tests print() method.
      */
     public void testPrint() {
-        // maybe have Baseclass print() return String or LList?
-        
-        //assertEquals("E", fw.print());
+        assertEquals("E", fw.print());
     }
 }

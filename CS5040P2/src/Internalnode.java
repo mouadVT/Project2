@@ -24,7 +24,6 @@ public class Internalnode<T> implements Baseclass<T> {
 
     @Override
     public void insert(T entry, T depth) {
-        // TODO Auto-generated method stub
         
     }
 
