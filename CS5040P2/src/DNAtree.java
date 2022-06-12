@@ -31,7 +31,7 @@ public class DNAtree  {
     
     public void wordProcessing(String line) {
         
-        String[] word = line.split(" \\s*"); // there are only two possible words 
+        String[] word = line.split(" \\s*"); //insert                 AAACCCCGGTGAAAACGTA there are only two possible words 
         switch (word[0]) {
             case "insert":
                 /// we insert word[1] to DNA tree
