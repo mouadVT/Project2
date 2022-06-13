@@ -1,17 +1,7 @@
-// Mouad
 public class Internalnode extends Baseclass {
-
-    //Baseclass a;
-    private Baseclass a,c, g, t, $;
-    //private Internalnode a, c, g, t, $;;
-
-    /**
-     * @param a
-     * @param c
-     * @param g
-     * @param t
-     * @param $
-     */
+    
+    private Baseclass a, c, g, t, $;
+    
     public Internalnode() {
         this.a = new flyweightnode();
         this.c = new flyweightnode();
@@ -19,30 +9,52 @@ public class Internalnode extends Baseclass {
         this.t = new flyweightnode();
         this.$ = new flyweightnode();
     }
+    
+    // used for testing purposes
+    public Baseclass getChild(char dna) {
+        if (dna == 'A') {
+            return a;
+        }
+        else if (dna == 'C') {
+            return c;
+        }
+        else if (dna == 'G') {
+            return g;
+        }
+        else if (dna == 'T') {
+            return t;
+        }
+        else if (dna == '$') {
+            return $;
+        }
+        return $;
+    }
 
 
     @Override
     public Baseclass insert(String entry, int depth) {
-        if (entry.charAt(depth)==('A')) {
-            return a = insert(entry, depth+1);
+        if (depth <= entry.length()) {
+            if (entry.charAt(depth) == ('A')) {
+                return a = a.insert(entry, depth + 1);
+            }
+            else if (entry.charAt(depth) == ('T')) {
+                return t = t.insert(entry, depth + 1);
+            }
+            else if (entry.charAt(depth) == ('G')) {
+                return g = g.insert(entry, depth + 1);
+            }
+            else if (entry.charAt(depth) == ('C')) {
+                return c = c.insert(entry, depth + 1);
+            }
         }
-        else if (entry.equals("T")) {
-            return t = insert(entry, depth+1);
-        }
-        else if (entry.equals("G")) {
-            new Internalnode();
-        }
-        else if (entry.equals("C")) {
-            new Internalnode();
-        }
-            return $ = insert(entry, depth+1);
+        return $ = $.insert(entry, depth);
     }
 
 
     @Override
     public String print() {
-        // TODO Auto-generated method stub
-        return null;
+        System.out.println("I");
+        return "I";
     }
 
 

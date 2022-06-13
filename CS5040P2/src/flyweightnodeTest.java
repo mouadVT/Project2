@@ -9,7 +9,7 @@ import student.TestCase;
  */
 public class flyweightnodeTest extends TestCase {
     
-    private flyweightnode fw;
+    private Baseclass fw;
     
     /**
      * Sets up each test method.
@@ -23,7 +23,11 @@ public class flyweightnodeTest extends TestCase {
      * Tests insert() method.
      */
     public void testInsert() {
-        // TODO
+        assertEquals("E", fw.print());
+        
+        fw = fw.insert("ACGT", 0);
+        
+        assertEquals("ACGT", fw.print());
     }
     
     

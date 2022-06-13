@@ -1,12 +1,11 @@
 /**
- * DNA tree node interface that defines operations for nodes.
+ * DNA tree node abstract class that defines operations for nodes.
  */
  public abstract class Baseclass {
     /**
      * Inserts sequence into tree node.
      */
-
-    public  abstract Baseclass insert(String entry, int depth);
+    public abstract Baseclass insert(String entry, int depth);
 
 
     /**

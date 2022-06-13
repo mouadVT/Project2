@@ -10,12 +10,14 @@ public class LeafNode extends Baseclass {
     
     private String data;
     private Baseclass leaf;
+    private int depth;
     
     /**
      * LeafNode constructor.
      */
     public LeafNode(String seq, int d) {
         this.data = seq;
+        this.depth = d;
     }
     
     
@@ -28,48 +30,30 @@ public class LeafNode extends Baseclass {
     
     
     /**
-     * Returns depth of node.
-     */
-    //public int getDepth() {
-    //    return depth;
-    //}
-    
-    
-    /**
-     * Sets depth of leaf node.
-     */
-    //public void setDepth(int d) {
-    //    depth = d;
-    //}
-    
-    
-    /**
      * Inserts sequence into leaf node
      * and converts leaf node into internal node.
      * 
      * @param seq (String of DNA sequence)
+     * @param d (depth/level of new node)
      */
     @Override
-    public Baseclass insert(String seq, int depth) {
-        //String data = getSeq();
-        //int origDepth = getDepth();
-        
+    public Baseclass insert(String seq, int d) {        
         // sequence already exists
         if (seq.equals(data)) {
-            System.out.println("Sequence " + data + " already exists");
-        }
-        else {
-            //Internalnode intNode = new Internalnode();
-            
-            // new sequence being inserted
-            //intNode.insert(seq, depth + 1);
-            // original leaf node moves down
-            //intNode.insert(data, depth + 1);
-            
-            System.out.println("sequence " + seq + " inserted at level " + depth);
+            System.out.println("sequence " + data + " already exists");
+            return this;
         }
         
-        return leaf = insert(seq, depth);
+        leaf = new Internalnode();
+        
+        // new sequence being inserted
+        leaf.insert(seq, d + 1);
+        
+        // original leaf node becomes child
+        leaf.insert(data, depth + 1);
+        
+        System.out.println("sequence " + seq + " inserted at level " + d);
+        return leaf;
     }
 
 
