@@ -6,7 +6,7 @@
      * Inserts sequence into tree node.
      */
 
-    public abstract void insert(String entry, int depth);
+    public  abstract Baseclass insert(String entry, int depth);
 
 
     /**

@@ -53,7 +53,7 @@ public class LeafNode implements Baseclass {
      * @param seq (String of DNA sequence)
      */
     @Override
-    public void insert(String seq, int depth) {
+    public Baseclass insert(String seq, int depth) {
         String data = getSeq();
         int origDepth = getDepth();
         

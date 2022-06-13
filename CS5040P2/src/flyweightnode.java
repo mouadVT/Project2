@@ -7,9 +7,9 @@
  * @author Mouad Ait Taleb Ali (mouad)
  * @version 06/08/2022
  */
-public class flyweightnode<T> implements Baseclass {
+public class flyweightnode extends Baseclass {
     
-    private static flyweightnode fw; //maybe initialize in DNAtree?
+    private Baseclass fw; //maybe initialize in DNAtree?
     
     /**
      * Default constructor.
@@ -26,9 +26,10 @@ public class flyweightnode<T> implements Baseclass {
      * @param seq (Linked list of DNA sequence)
      */
     @Override
-    public void insert(String seq, int depth) {
-        LeafNode leaf = new LeafNode(seq, depth);
+    public Baseclass insert(String seq, int depth) {
+         fw = new LeafNode(seq, depth);
         System.out.println("sequence " + seq + " inserted at level " + depth);
+        return fw;
     }
 
 

@@ -9,6 +9,16 @@ import java.util.Scanner;
  */
 public class DNAtree  {
 
+    /** DNAtree constructor.
+    */
+   public DNAtree() {
+       // constructor
+       // depth
+       // FW
+   }
+   
+
+   
     /**
      * @param args
      */
@@ -47,5 +57,10 @@ public class DNAtree  {
                 break;
             default:
         }
+    }
+    public  void insert(DNAtree entry, int depth) {
+        // if internal -> set to internal node
+        
+       
     }
 }
