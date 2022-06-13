@@ -1,5 +1,3 @@
-// James
-
 /**
  * flyweightnode class.
  * 
@@ -27,9 +25,9 @@ public class flyweightnode extends Baseclass {
      */
     @Override
     public Baseclass insert(String seq, int depth) {
-         fw = new LeafNode(seq, depth);
+        //fw = new LeafNode(seq, depth);
         System.out.println("sequence " + seq + " inserted at level " + depth);
-        return fw;
+        return fw = insert(seq, depth);
     }
 
 

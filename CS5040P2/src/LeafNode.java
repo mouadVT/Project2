@@ -1,5 +1,3 @@
-// James
-
 /**
  *  The DNA sequences stored in the leaf nodes may be implemented using a linked list
  * LeafNode class.
@@ -8,17 +6,16 @@
  * @author Mouad Ait Taleb Ali (mouad)
  * @version 06/08/2022
  */
-public class LeafNode implements Baseclass {
+public class LeafNode extends Baseclass {
     
-    private Linkedlist<String> data;
-    private int depth;
+    private String data;
+    private Baseclass leaf;
     
     /**
      * LeafNode constructor.
      */
     public LeafNode(String seq, int d) {
         this.data = seq;
-        this.depth = d;
     }
     
     
@@ -33,17 +30,17 @@ public class LeafNode implements Baseclass {
     /**
      * Returns depth of node.
      */
-    public int getDepth() {
-        return depth;
-    }
+    //public int getDepth() {
+    //    return depth;
+    //}
     
     
     /**
      * Sets depth of leaf node.
      */
-    public void setDepth(int d) {
-        depth = d;
-    }
+    //public void setDepth(int d) {
+    //    depth = d;
+    //}
     
     
     /**
@@ -54,23 +51,25 @@ public class LeafNode implements Baseclass {
      */
     @Override
     public Baseclass insert(String seq, int depth) {
-        String data = getSeq();
-        int origDepth = getDepth();
+        //String data = getSeq();
+        //int origDepth = getDepth();
         
         // sequence already exists
         if (seq.equals(data)) {
             System.out.println("Sequence " + data + " already exists");
         }
         else {
-            Internalnode intNode = new Internalnode();
+            //Internalnode intNode = new Internalnode();
             
             // new sequence being inserted
-            intNode.insert(seq, origDepth + 1);
+            //intNode.insert(seq, depth + 1);
             // original leaf node moves down
-            intNode.insert(data, origDepth + 1);
+            //intNode.insert(data, depth + 1);
             
             System.out.println("sequence " + seq + " inserted at level " + depth);
         }
+        
+        return leaf = insert(seq, depth);
     }
 
 
