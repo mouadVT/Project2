@@ -11,7 +11,7 @@
     /**
      * Prints out DNA tree.
      */
-    public abstract String print();
+    public abstract String print(int depth);
 
 
     /**

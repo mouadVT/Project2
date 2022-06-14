@@ -15,9 +15,9 @@ public class LeafNode extends Baseclass {
     /**
      * LeafNode constructor.
      */
-    public LeafNode(String seq, int d) {
+    public LeafNode(String seq /**, int d*/) {
         this.data = seq;
-        this.depth = d;
+        ///this.depth = d;
     }
     
     
