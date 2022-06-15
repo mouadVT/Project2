@@ -17,11 +17,11 @@
     /**
      * Finds all sequences that match the given sequence.
      */
-    public abstract void search(String entry);
+    public abstract void search(String entry, int depth);
 
 
     /**
      * Removes a sequence from the tree.
      */
-    public abstract String remove(String entry);
+    public abstract Baseclass remove(String entry, int depth);
 }

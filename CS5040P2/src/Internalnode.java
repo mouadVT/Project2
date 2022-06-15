@@ -1,11 +1,16 @@
 public class Internalnode extends Baseclass {
-    
+
     private Baseclass a, c, g, t, $;
-    
-    public Internalnode(String entry, char character) {
-        this.setTheLeafNode(entry, character);
+
+    public Internalnode() {
+        this.a = new flyweightnode();
+        this.c = new flyweightnode();
+        this.g = new flyweightnode();
+        this.t = new flyweightnode();
+        this.$ = new flyweightnode();
     }
-    
+
+
     // used for testing purposes
     public Baseclass getChild(char dna) {
         if (dna == 'A') {
@@ -29,94 +34,82 @@ public class Internalnode extends Baseclass {
 
     @Override
     public Baseclass insert(String entry, int depth) {
-//        if (depth == entry.length() || entry.charAt(depth)=='$') {
-//            return $ = $.insert(entry, depth);
-//        }
-        if (depth <= entry.length()) {
-            switch (entry.charAt(depth)) {
-                case 'A':
-                     a = a.insert(entry, depth + 1);
-                case 'C':
-                     c = c.insert(entry, depth + 1);
-                case 'G':
-                     g = g.insert(entry, depth + 1);
-                case 'T':
-                     t = t.insert(entry, depth + 1);
-                default:
-                    break;
+        if (depth < entry.length()) {
+            if (entry.charAt(depth) == 'A') {
+                a = a.insert(entry, depth++);
+            }
+            else if (entry.charAt(depth) == 'C') {
+                c = c.insert(entry, depth++);
+            }
+            else if (entry.charAt(depth) == 'G') {
+                g = g.insert(entry, depth++);
+            }
+            else {
+                t = t.insert(entry, depth++);
             }
             return this;
         }
-        return $ = $.insert(entry, depth);
-        
+        $ = $.insert(entry, depth);
+        return this;
     }
 
 
     @Override
     public String print(int depth) {
-        String st0 ="";
+        String st0 = "";
         String st1 = "I";
         for (int i = 0; i < depth; i++) {
-            st0+=" ";
+            st0 += " ";
         }
-        System.out.println(st0+st1);
-        return st0+st1;
+        System.out.println(st0 + st1);
+        a.print(depth);
+        c.print(depth);
+        g.print(depth);
+        t.print(depth);
+        $.print(depth);
+        return st0 + st1;
     }
 
 
     @Override
-    public void search(String entry) {
-        // TODO Auto-generated method stub
-
+    public void search(String entry, int depth) {
+        if (depth < entry.length()) {
+            if (entry.charAt(depth) == 'A') {
+                a.search(entry, depth++);
+            }
+            else if (entry.charAt(depth) == 'C') {
+                c.search(entry, depth++);
+            }
+            else if (entry.charAt(depth) == 'G') {
+                g.search(entry, depth++);
+            }
+            else {
+                t.search(entry, depth++);
+            }
+        }
+        $.search(entry, depth);
     }
 
 
     @Override
-    public String remove(String entry) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-    
-    public void setTheLeafNode(String sequence, char character) {
-
-        switch (character) {
-            case 'A':
-                this.a = new LeafNode(sequence);
-                this.c = new flyweightnode();
-                this.g = new flyweightnode();
-                this.t = new flyweightnode();
-                this.$ = new flyweightnode();
-                break;
-            case 'C':
-                this.a = new flyweightnode();
-                this.c = new LeafNode(sequence);
-                this.g = new flyweightnode();
-                this.t = new flyweightnode();
-                this.$ = new flyweightnode();
-                break;
-            case 'G':
-                this.a = new flyweightnode();
-                this.c = new flyweightnode();
-                this.g = new LeafNode(sequence);
-                this.t = new flyweightnode();
-                this.$ = new flyweightnode();
-                break;
-            case 'T':
-                this.a = new flyweightnode();
-                this.c = new flyweightnode();
-                this.g = new flyweightnode();
-                this.t = new LeafNode(sequence);
-                this.$ = new flyweightnode();
-                break;
-            default:
-                this.a = new flyweightnode();
-                this.c = new flyweightnode();
-                this.g = new flyweightnode();
-                this.t = new flyweightnode();
-                this.$ = new LeafNode(sequence);
-                break;
+    public Baseclass remove(String entry, int depth) {
+        if (depth < entry.length()) {
+            if (entry.charAt(depth) == 'A') {
+                a = a.remove(entry, ++depth);
+            }
+            else if (entry.charAt(depth) == 'C') {
+                c = c.remove(entry, ++depth);
+            }
+            else if (entry.charAt(depth) == 'G') {
+                g = g.remove(entry, ++depth);
+            }
+            else {
+                t = t.remove(entry, ++depth);
+            }
+            return this;
         }
-
+        $ = $.remove(entry, depth);
+        return this;
     }
 
 }
