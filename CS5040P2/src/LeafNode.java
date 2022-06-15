@@ -9,15 +9,16 @@
 public class LeafNode extends Baseclass {
     
     private String data;
-    private Baseclass leaf;
+    private Baseclass intNode;
     private int depth;
+    private int level;
     
     /**
      * LeafNode constructor.
      */
-    public LeafNode(String seq /**, int d*/) {
+    public LeafNode(String seq, int d) {
         this.data = seq;
-        ///this.depth = d;
+        this.level = d;
     }
     
     
@@ -37,23 +38,36 @@ public class LeafNode extends Baseclass {
      * @param d (depth/level of new node)
      */
     @Override
-    public Baseclass insert(String seq, int d) {        
+    public Baseclass insert(String seq, int d) {
         // sequence already exists
         if (seq.equals(data)) {
             System.out.println("sequence " + data + " already exists");
             return this;
         }
         
-        leaf = new Internalnode();
+        intNode = new Internalnode();
         
         // new sequence being inserted
-        leaf.insert(seq, d + 1);
+        Internalnode intNode2 = (Internalnode)intNode.insert(seq, d);
         
         // original leaf node becomes child
-        leaf.insert(data, depth + 1);
+        if (data.charAt(level) == 'A') {
+            ((Internalnode)intNode2).setTheLeafNode(data, level, 'A');
+        }
+        else if (data.charAt(level) == 'C') {
+            ((Internalnode)intNode2).setTheLeafNode(data, level, 'C');
+        }
+        else if (data.charAt(level) == 'G') {
+            ((Internalnode)intNode2).setTheLeafNode(data, level, 'G');
+        }
+        else if (data.charAt(level) == 'T') {
+            ((Internalnode)intNode2).setTheLeafNode(data, level, 'T');
+        }
+        else {
+            ((Internalnode)intNode2).setTheLeafNode(data, level, '$');
+        }
         
-        System.out.println("sequence " + seq + " inserted at level " + d);
-        return leaf;
+        return intNode2;
     }
 
 
@@ -61,9 +75,14 @@ public class LeafNode extends Baseclass {
      * Prints out DNA sequence of leaf node.
      */
     @Override
-    public String print() {
-        System.out.println(data);
-        return data;
+    public String print(int depth) {
+        String st0 = "";
+        String st1 = data;
+        for (int i = 0; i < depth; i++) {
+            st0 += " ";
+        }
+        System.out.println(st0 + st1);
+        return st0 + st1;
     }
 
 
@@ -71,7 +90,7 @@ public class LeafNode extends Baseclass {
      * Finds all sequences that match the given sequence.
      */
     @Override
-    public void search(String seq) {
+    public void search(String seq, int depth) {
         // TODO Auto-generated method stub
     }
 
@@ -80,8 +99,8 @@ public class LeafNode extends Baseclass {
      * Removes a sequence from the tree.
      */
     @Override
-    public String remove(String seq) {
+    public Baseclass remove(String seq, int depth) {
         // TODO Auto-generated method stub
-        return seq;
+        return intNode;
     }
 }

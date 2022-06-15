@@ -30,6 +30,29 @@ public class Internalnode extends Baseclass {
         }
         return $;
     }
+    
+    
+    public void setTheLeafNode(String sequence, int depth, char index) {
+
+        switch (index) {
+            case 'A':
+                this.a = new LeafNode(sequence, depth);
+                break;
+            case 'C':
+                this.c = new LeafNode(sequence, depth);
+                break;
+            case 'G':
+                this.g = new LeafNode(sequence, depth);
+                break;
+            case 'T':
+                this.t = new LeafNode(sequence, depth);
+                break;
+            default:
+                this.$ = new LeafNode(sequence, depth);
+                break;
+        }
+
+    }
 
 
     @Override

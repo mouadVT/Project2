@@ -23,11 +23,11 @@ public class flyweightnodeTest extends TestCase {
      * Tests insert() method.
      */
     public void testInsert() {
-        assertEquals("E", fw.print());
+        assertEquals("E", fw.print(0));
         
         fw = fw.insert("ACGT", 0);
         
-        assertEquals("ACGT", fw.print());
+        assertEquals("ACGT", fw.print(0));
     }
     
     
@@ -35,6 +35,6 @@ public class flyweightnodeTest extends TestCase {
      * Tests print() method.
      */
     public void testPrint() {
-        assertEquals("E", fw.print());
+        assertEquals("E", fw.print(0));
     }
 }

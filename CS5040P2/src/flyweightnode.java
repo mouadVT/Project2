@@ -36,9 +36,14 @@ public class flyweightnode extends Baseclass {
      * Prints out "E" for empty leaf node.
      */
     @Override
-    public String print() {
-        System.out.println("E");
-        return "E";
+    public String print(int depth) {
+        String st0 = "";
+        String st1 = "E";
+        for (int i = 0; i < depth; i++) {
+            st0 += " ";
+        }
+        System.out.println(st0 + st1);
+        return st0 + st1;
     }
 
 
@@ -46,7 +51,7 @@ public class flyweightnode extends Baseclass {
      * Finds all sequences that match the given sequence.
      */
     @Override
-    public void search(String seq) {
+    public void search(String seq, int depth) {
         // TODO Auto-generated method stub
     }
 
@@ -55,8 +60,8 @@ public class flyweightnode extends Baseclass {
      * Removes a sequence from the tree.
      */
     @Override
-    public String remove(String seq) {
+    public Baseclass remove(String seq, int depth) {
         // TODO Auto-generated method stub
-        return seq;
+        return fw;
     }
 }
