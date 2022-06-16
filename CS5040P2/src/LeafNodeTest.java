@@ -53,8 +53,8 @@ public class LeafNodeTest extends TestCase {
         //assertEquals("ACGT", leaf2.print(0));
         
         // leaf -> internal
-        leaf2 = leaf2.insert("AAAA", 2);
-        assertEquals("  I", leaf2.print(2));
+        leaf2 = leaf2.insert("ATAA", 0);
+        assertEquals("I", leaf2.print(0));
         
         //Baseclass parent = leaf2;
 

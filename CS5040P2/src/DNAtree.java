@@ -6,22 +6,20 @@ import java.util.Scanner;
  * All DNA tree operations must be implemented recursively
  */
 public class DNAtree {
+   private int depth; // where an how the depth should be updated
     
-    private static flyweightnode fw;
-    private Baseclass curr;
+//    private Internalnode internalNode;
+//    private LeafNode leafNode;
+    private Baseclass dnaTree;
     
     /**
      * All DNA tree operations must be implemented recursively
      */
     public DNAtree() {
-        // constructor
-        // depth
-        // FW
-        fw = new flyweightnode();
-        curr = fw;
+        dnaTree = new flyweightnode();
+        this.depth = 0;
     }
-   
-
+    
     /**
      * Main method (runs program).
      * 
@@ -52,7 +50,6 @@ public class DNAtree {
             String line = scanIn.nextLine().trim();
             if (!line.isEmpty()) {
                 line = line.replaceAll("\\s+", " ");
-                
                 this.wordProcessing(line);
             }
         }
@@ -61,9 +58,11 @@ public class DNAtree {
     
     public void wordProcessing(String line) {
         
-        String[] word = line.split(" \\s*"); //insert AAACCCCGGTGAAAACGTA there are only two possible words
+        String[] word = line.split(" \\s*"); //there are only two possible words
         switch (word[0]) {
             case "insert":
+                dnaTree.insert(word[1], 0);
+                //depth++;
                 /// we insert word[1] to DNA tree
                 break;
             case "search":
@@ -73,6 +72,7 @@ public class DNAtree {
               /// we print word[1]from DNA tree
                 break;
             case "remove":
+                dnaTree.remove(word[1], 0);
               /// we remove word[1] from DNA tree
                 break;
             default:

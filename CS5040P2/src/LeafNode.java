@@ -10,7 +10,6 @@ public class LeafNode extends Baseclass {
     
     private String data;
     private Baseclass intNode;
-    private int depth;
     private int level;
     
     /**
@@ -39,35 +38,36 @@ public class LeafNode extends Baseclass {
      */
     @Override
     public Baseclass insert(String seq, int d) {
+        
         // sequence already exists
         if (seq.equals(data)) {
             System.out.println("sequence " + data + " already exists");
             return this;
         }
-        
-        intNode = new Internalnode();
+        else {
+        intNode = new Internalnode(); // a leafnode, char  
         
         // new sequence being inserted
-        Internalnode intNode2 = (Internalnode)intNode.insert(seq, d);
         
-        // original leaf node becomes child
+        
+        // change the original leaf node to becomes a child
         if (data.charAt(level) == 'A') {
-            ((Internalnode)intNode2).setTheLeafNode(data, level, 'A');
+            ((Internalnode)intNode).setTheLeafNode(data, level, 'A');
         }
         else if (data.charAt(level) == 'C') {
-            ((Internalnode)intNode2).setTheLeafNode(data, level, 'C');
+            ((Internalnode)intNode).setTheLeafNode(data, level, 'C');
         }
         else if (data.charAt(level) == 'G') {
-            ((Internalnode)intNode2).setTheLeafNode(data, level, 'G');
+            ((Internalnode)intNode).setTheLeafNode(data, level, 'G');
         }
         else if (data.charAt(level) == 'T') {
-            ((Internalnode)intNode2).setTheLeafNode(data, level, 'T');
+            ((Internalnode)intNode).setTheLeafNode(data, level, 'T');
         }
         else {
-            ((Internalnode)intNode2).setTheLeafNode(data, level, '$');
+            ((Internalnode)intNode).setTheLeafNode(data, level, '$');
         }
-        
-        return intNode2;
+        }
+        return (Internalnode)intNode.insert(seq, d+1);
     }
 
 

@@ -59,20 +59,20 @@ public class Internalnode extends Baseclass {
     public Baseclass insert(String entry, int depth) {
         if (depth < entry.length()) {
             if (entry.charAt(depth) == 'A') {
-                a = a.insert(entry, depth++);
+                a = a.insert(entry, depth+1);
             }
             else if (entry.charAt(depth) == 'C') {
-                c = c.insert(entry, depth++);
+                c = c.insert(entry, depth+1);
             }
             else if (entry.charAt(depth) == 'G') {
-                g = g.insert(entry, depth++);
+                g = g.insert(entry, depth+1);
             }
             else {
-                t = t.insert(entry, depth++);
+                t = t.insert(entry, depth+1);
             }
             return this;
         }
-        $ = $.insert(entry, depth);
+        $ = $.insert(entry, depth+1);
         return this;
     }
 
@@ -85,11 +85,11 @@ public class Internalnode extends Baseclass {
             st0 += " ";
         }
         System.out.println(st0 + st1);
-        a.print(depth);
-        c.print(depth);
-        g.print(depth);
-        t.print(depth);
-        $.print(depth);
+        a.print(depth+1);
+        c.print(depth+1);
+        g.print(depth+1);
+        t.print(depth+1);
+        $.print(depth+1);
         return st0 + st1;
     }
 
