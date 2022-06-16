@@ -37,7 +37,7 @@ public class LeafNode extends Baseclass {
      * @param d (depth/level of new node)
      */
     @Override
-    public Baseclass insert(String seq, int d) {
+    public Baseclass insert(String seq, int level) {
         
         // sequence already exists
         if (seq.equals(data)) {
@@ -67,7 +67,7 @@ public class LeafNode extends Baseclass {
             ((Internalnode)intNode).setTheLeafNode(data, level, '$');
         }
         }
-        return (Internalnode)intNode.insert(seq, d+1);
+        return (Internalnode)intNode.insert(seq, level+1);
     }
 
 
