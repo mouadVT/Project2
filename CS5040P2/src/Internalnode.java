@@ -32,26 +32,20 @@ public class Internalnode extends Baseclass {
     }
     
     
-    public void setTheLeafNode(String sequence, int depth, char index) {
-
-        switch (index) {
-            case 'A':
-                this.a = new LeafNode(sequence, depth);
-                break;
-            case 'C':
-                this.c = new LeafNode(sequence, depth);
-                break;
-            case 'G':
-                this.g = new LeafNode(sequence, depth);
-                break;
-            case 'T':
-                this.t = new LeafNode(sequence, depth);
-                break;
-            default:
-                this.$ = new LeafNode(sequence, depth);
-                break;
+    public Baseclass getLeaf() {
+        if (a instanceof LeafNode) {
+            return a;
         }
-
+        else if (c instanceof LeafNode) {
+            return c;
+        }
+        else if (g instanceof LeafNode) {
+            return g;
+        }
+        else if (t instanceof LeafNode) {
+            return t;
+        }
+        return t;
     }
 
 
@@ -95,25 +89,24 @@ public class Internalnode extends Baseclass {
             }
             return this;
         }
-        $ = $.insert(entry, depth); // removed +1
+        $ = $.insert(entry, depth+1);
         return this;
     }
 
 
     @Override
-    public void print(int depth) {
+    public void print(int depth, String entry) {
         String st0 = "";
         String st1 = "I";
         for (int i = 0; i < depth; i++) {
             st0 += " ";
         }
         System.out.println(st0 + st1);
-        a.print(depth+1);
-        c.print(depth+1);
-        g.print(depth+1);
-        t.print(depth+1);
-        $.print(depth+1);
-        //return st0 + st1;
+        a.print(depth+1, entry);
+        c.print(depth+1, entry);
+        g.print(depth+1, entry);
+        t.print(depth+1, entry);
+        $.print(depth+1, entry);
     }
 
 
@@ -121,16 +114,16 @@ public class Internalnode extends Baseclass {
     public void search(String entry, int depth) {
         if (depth < entry.length()) {
             if (entry.charAt(depth) == 'A') {
-                a.search(entry, depth++);
+                a.search(entry, depth+1);
             }
             else if (entry.charAt(depth) == 'C') {
-                c.search(entry, depth++);
+                c.search(entry, depth+1);
             }
             else if (entry.charAt(depth) == 'G') {
-                g.search(entry, depth++);
+                g.search(entry, depth+1);
             }
             else {
-                t.search(entry, depth++);
+                t.search(entry, depth+1);
             }
         }
         $.search(entry, depth);
@@ -157,5 +150,26 @@ public class Internalnode extends Baseclass {
         $ = $.remove(entry, depth);
         return this;
     }
-
+    
+    
+    public void setTheLeafNode(String sequence, int depth, char index) {
+ 
+        switch (index) {
+            case 'A':
+                this.a = new LeafNode(sequence, depth);
+                break;
+            case 'C':
+                this.c = new LeafNode(sequence, depth);
+                break;
+            case 'G':
+                this.g = new LeafNode(sequence, depth);
+                break;
+            case 'T':
+                this.t = new LeafNode(sequence, depth);
+                break;
+            default:
+                this.$ = new LeafNode(sequence, depth);
+                break;
+        }
+    }
 }

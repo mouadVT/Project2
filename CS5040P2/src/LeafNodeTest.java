@@ -33,7 +33,7 @@ public class LeafNodeTest extends TestCase {
      * Tests print() method.
      */
     public void testPrint() {
-        //assertEquals("ACGT", leaf.print(0));
+        System.out.println(leaf.sequenceStats("GCT"));
     }
     
     
@@ -57,7 +57,7 @@ public class LeafNodeTest extends TestCase {
         // also if second insert is bigger than first and same letters
         
         // leaf -> internal
-        leaf2 = leaf2.insert("AA", 0);
+        leaf2 = leaf2.insert("AAAA", 0);
         //leaf2.print(0);
         
         //Baseclass parent = leaf2;
@@ -65,14 +65,14 @@ public class LeafNodeTest extends TestCase {
         //assertEquals("ACGT", ((LeafNode)((Internalnode)leaf2).getChild('A')).getSeq());
         //assertEquals("AGTA", ((LeafNode)((Internalnode)leaf2).getChild('G')).getSeq());
         
-        //leaf2 = leaf2.insert("AA", 0);
-        leaf2.print(0);
+        leaf2 = leaf2.insert("AA", 0);
+        //leaf2.print(0);
         
         //assertEquals("AA", ((LeafNode)((Internalnode)parent).getChild('$')).getSeq());
         //assertEquals("AAAA", ((LeafNode)((Internalnode)parent).getChild('A')).getSeq());
         
-        //leaf2 = leaf2.insert("AAACCCCGGTGAAAACGTA", 4);
-        //assertEquals("I", leaf2.print());
+        leaf2 = leaf2.insert("AAACCCCGGTGAAAACGTA", 0);
+        leaf2.print(0, "");
         
         //assertEquals("AAAA", ((LeafNode)((Internalnode)leaf2).getChild('A')).getSeq());
         //assertEquals("AAACCCCGGTGAAAACGTA", ((LeafNode)((Internalnode)leaf2).getChild('C')).getSeq());

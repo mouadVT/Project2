@@ -6,9 +6,9 @@ import java.util.Scanner;
  * All DNA tree operations must be implemented recursively
  */
 public class DNAtree {
-   private int depth; // where an how the depth should be updated
+    private int depth; // where an how the depth should be updated
     
-//    private Internalnode internalNode;
+    //private Internalnode internalNode;
 //    private LeafNode leafNode;
     private Baseclass dnaTree;
     
@@ -17,7 +17,6 @@ public class DNAtree {
      */
     public DNAtree() {
         dnaTree = new flyweightnode();
-        this.depth = 0;
     }
     
     /**
@@ -35,6 +34,8 @@ public class DNAtree {
         DNAtree tree = new DNAtree();
         
         tree.fileReader(inputFilePath);
+        
+        
     }
 
     
@@ -46,43 +47,46 @@ public class DNAtree {
      */
     public void fileReader(String fileName) throws FileNotFoundException {
         Scanner scanIn = new Scanner(new File(fileName));
+        int count = 0;
+        
         while (scanIn.hasNextLine()) {
             String line = scanIn.nextLine().trim();
+            
             if (!line.isEmpty()) {
                 line = line.replaceAll("\\s+", " ");
-                this.wordProcessing(line);
+                this.wordProcessing(line, count);
+                count++;
+                //System.out.println(count);
             }
         }
         scanIn.close();
+        //dnaTree.print(0);
     }
     
-    public void wordProcessing(String line) {
+    public void wordProcessing(String line, int count) {
         
         String[] word = line.split(" \\s*"); //there are only two possible words
+        
+        //if (count == 0) {
+        //    dnaTree = new flyweightnode();
+        //}
+        
         switch (word[0]) {
             case "insert":
-                dnaTree.insert(word[1], 0);
-                //depth++;
-                /// we insert word[1] to DNA tree
+                dnaTree = dnaTree.insert(word[1], 0);
                 break;
             case "search":
-              /// we search for word[1] in DNA tree
+                // we search for word[1] in DNA tree
                 break;
             case "print":
-              /// we print word[1]from DNA tree
+                dnaTree.print(0, word[1]);
                 break;
             case "remove":
-                dnaTree.remove(word[1], 0);
-              /// we remove word[1] from DNA tree
+                //dnaTree.remove(word[1], 0);
+                // we remove word[1] from DNA tree
                 break;
             default:
         }
-    }
-    
-    
-    public void insert(DNAtree entry, int depth) {
-        // if internal -> set to internal node
-        
-       
+        //dnaTree = new Internalnode();
     }
 }

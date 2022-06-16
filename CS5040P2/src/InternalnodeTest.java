@@ -2,14 +2,13 @@
 import student.TestCase;
 
 public class InternalnodeTest extends TestCase  {
-    private Internalnode interNode;
+    private Baseclass interNode;
 
     /**
      * Sets up each test method.
      */
     public void setUp() {
-        interNode= new Internalnode();
-        
+       interNode= new Internalnode();
     }
     /**
      * Test the insert() method.
@@ -21,7 +20,9 @@ public class InternalnodeTest extends TestCase  {
         interNode.insert("ACGT", 0);
         interNode.insert("AAAA", 0);
         interNode.insert("AA", 0);
-        interNode.print(0);
+        interNode.insert("AAACCCCGGTGAAAACGTA", 0);
+        interNode.insert("ACTGGGAA", 0);
+        interNode.print(0, "");
     }
     /**
      * Test the print method.
@@ -33,7 +34,11 @@ public class InternalnodeTest extends TestCase  {
      * Test the search method.
      */
     public void testSerch() {
-        //System.out.println(interNode.search("AG", 0));  
+        interNode.insert("ACGT", 0);
+        interNode.insert("AAAA", 0);
+        interNode.insert("AA", 0);
+        
+        interNode.search("AA$", 0);  
     }
     /**
      * Test the Remove method.
