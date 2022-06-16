@@ -173,5 +173,7 @@ public class Internalnode extends Baseclass {
         }
     }
     
-    // do we have to use equals or comparison method at all?
+    // do we have to implement equals or comparison method at all?
+    
+    // 
 }

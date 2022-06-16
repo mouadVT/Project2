@@ -1,5 +1,6 @@
 /**
- *  The DNA sequences stored in the leaf nodes may be implemented using a linked list
+ * The DNA sequences stored in the leaf nodes may be implemented using a linked
+ * list
  * LeafNode class.
  * 
  * @author James Jang (jangwool)
@@ -7,11 +8,11 @@
  * @version 06/08/2022
  */
 public class LeafNode extends Baseclass {
-    
+
     private String data;
     private Baseclass intNode;
     private int level;
-    
+
     /**
      * LeafNode constructor.
      */
@@ -19,26 +20,28 @@ public class LeafNode extends Baseclass {
         this.data = seq;
         this.level = d;
     }
-    
-    
+
+
     /**
      * Returns data (sequence) in node.
      */
     public String getSeq() {
         return data;
     }
-    
-    
+
+
     /**
      * Inserts sequence into leaf node
      * and converts leaf node into internal node.
      * 
-     * @param seq (String of DNA sequence)
-     * @param d (depth/level of new node)
+     * @param seq
+     *            (String of DNA sequence)
+     * @param d
+     *            (depth/level of new node)
      */
     @Override
     public Baseclass insert(String seq, int level) {
-        
+
         // sequence already exists
         if (seq.equals(data)) {
             System.out.println("sequence " + data + " already exists");
@@ -46,7 +49,7 @@ public class LeafNode extends Baseclass {
         }
         else {
             intNode = new Internalnode();
-            
+
             // change the original leaf node to becomes a child
             if (data.charAt(level) == 'A') {
                 ((Internalnode)intNode).setTheLeafNode(data, level, 'A');
@@ -63,7 +66,7 @@ public class LeafNode extends Baseclass {
             else {
                 ((Internalnode)intNode).setTheLeafNode(data, level, '$');
             }
-            
+
             // insert new sequence
             return (Internalnode)intNode.insert(seq, level);
         }
@@ -107,61 +110,104 @@ public class LeafNode extends Baseclass {
      */
     @Override
     public void search(String seq, int level) {
-        int visited = 0;
-        boolean dollar = false;
-        
-        //checks if sequence has $
-        for (int i = 0; i < seq.length(); i++) {
-            if (seq.charAt(i) == '$') {
-                dollar = true;
-            }
-        }
-        
-        if (dollar == true) {
-            // sequence found
-            if (seq.equals(this.getSeq())) {
-                System.out.println("# of nodes visited: " + visited);
-                System.out.println("sequence: " + seq);
+
+        if (seq.length() <= data.length()) {
+            if (lengthValidation(seq, 1)) {
+                System.out.println("sequence: " + data);
             }
             else {
-                intNode = new Internalnode();
-                
-                if (seq.charAt(level) == 'A') {
-                    //Baseclass child = ((Internalnode)intNode).getChild('A');
-                    if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() > 0) {
-                        visited += 1;
-                    }
-                    
-                    intNode.search(seq, level);
-                }
-                else if (seq.charAt(level) == 'C') {
-                    //Baseclass child = ((Internalnode)intNode).getChild('C');
-                    if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() > 0) {
-                        visited += 1;
-                    }
-                    
-                    intNode.search(seq, level);
-                }
-                else if (seq.charAt(level) == 'G') {
-                    //Baseclass child = ((Internalnode)intNode).getChild('G');
-                    if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() > 0) {
-                        visited += 1;
-                    }
-                    
-                    intNode.search(seq, level);
-                }
-                else if (seq.charAt(level) == 'T') {
-                    //Baseclass child = ((Internalnode)intNode).getChild('T');
-                    if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() > 0) {
-                        visited += 1;
-                    }
-                    
-                    intNode.search(seq, level);
-                }
+                System.out.println("no sequence found");
+            }
+        }
+        else if (lengthValidation(seq, 2)) {
+            if (lengthValidation(seq, 3)) {
+                System.out.println("sequence: " + data);
+            }
+            else {
+                System.out.println("no sequence found");
             }
         }
         else {
-            //if dollar == false
+            System.out.println("no sequence found");
+        }
+
+        /**
+         * int visited = 0;
+         * boolean dollar = false;
+         * 
+         * //checks if sequence has $
+         * for (int i = 0; i < seq.length(); i++) {
+         * if (seq.charAt(i) == '$') {
+         * dollar = true;
+         * }
+         * }
+         * 
+         * if (dollar == true) {
+         * // sequence found
+         * if (seq.equals(this.getSeq())) {
+         * System.out.println("# of nodes visited: " + visited);
+         * System.out.println("sequence: " + seq);
+         * }
+         * else {
+         * intNode = new Internalnode();
+         * 
+         * if (seq.charAt(level) == 'A') {
+         * //Baseclass child = ((Internalnode)intNode).getChild('A');
+         * if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() >
+         * 0) {
+         * visited += 1;
+         * }
+         * 
+         * intNode.search(seq, level);
+         * }
+         * else if (seq.charAt(level) == 'C') {
+         * //Baseclass child = ((Internalnode)intNode).getChild('C');
+         * if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() >
+         * 0) {
+         * visited += 1;
+         * }
+         * 
+         * intNode.search(seq, level);
+         * }
+         * else if (seq.charAt(level) == 'G') {
+         * //Baseclass child = ((Internalnode)intNode).getChild('G');
+         * if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() >
+         * 0) {
+         * visited += 1;
+         * }
+         * 
+         * intNode.search(seq, level);
+         * }
+         * else if (seq.charAt(level) == 'T') {
+         * //Baseclass child = ((Internalnode)intNode).getChild('T');
+         * if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() >
+         * 0) {
+         * visited += 1;
+         * }
+         * 
+         * intNode.search(seq, level);
+         * }
+         * }
+         * }
+         * else {
+         * //if dollar == false
+         * }
+         */
+    }
+
+
+    private boolean lengthValidation(String seq, int num) {
+
+        if (num == 1) {
+            return data.substring(0, seq.length()).equals(seq);
+
+        }
+        else if (num == 2) {
+            return seq.substring(seq.length() - 1).equals("$");
+
+        }
+        else {
+            return seq.substring(0, seq.length() - 1).equals(data);
         }
     }
 
@@ -179,27 +225,27 @@ public class LeafNode extends Baseclass {
         System.out.println("Sequence " + seq + " removed");
         return flyNode;
     }
-    
-    
+
+
     public String sequenceStats(String seq) {
         double a = 0;
         double c = 0;
         double g = 0;
         double t = 0;
-        
+
         for (int i = 0; i < seq.length(); i++) {
             if (seq.charAt(i) == 'A') {
                 a += 1;
             }
-            
+
             if (seq.charAt(i) == 'C') {
                 c += 1;
             }
-            
+
             if (seq.charAt(i) == 'G') {
                 g += 1;
             }
-            
+
             if (seq.charAt(i) == 'T') {
                 t += 1;
             }
@@ -208,7 +254,7 @@ public class LeafNode extends Baseclass {
         String c2 = String.format("%.2f", (c / seq.length()) * 100);
         String g2 = String.format("%.2f", (g / seq.length()) * 100);
         String t2 = String.format("%.2f", (t / seq.length()) * 100);
-        
+
         return " A:" + a2 + " C:" + c2 + " G:" + g2 + " T:" + t2 + " ";
     }
 }
