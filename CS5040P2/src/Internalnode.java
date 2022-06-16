@@ -144,10 +144,10 @@ public class Internalnode extends Baseclass {
             else {
                 t = t.remove(entry, ++depth);
             }
-            return this;
+            return this.returnLeafNode();
         }
         $ = $.remove(entry, depth);
-        return this;
+        return this.returnLeafNode();
     }
 
 
@@ -178,21 +178,68 @@ public class Internalnode extends Baseclass {
             char character = entry.charAt(depth);
             switch (character) {
                 case 'A':
-                    return 1 + a.numOfNodeVisited(entry, depth+1);
+                    return 1 + a.numOfNodeVisited(entry, depth + 1);
                 case 'C':
-                    return 1 + c.numOfNodeVisited(entry, depth+1);
+                    return 1 + c.numOfNodeVisited(entry, depth + 1);
                 case 'G':
-                    return 1 + g.numOfNodeVisited(entry, depth+1);
+                    return 1 + g.numOfNodeVisited(entry, depth + 1);
                 case 'T':
-                    return 1 + t.numOfNodeVisited(entry, depth+1);
+                    return 1 + t.numOfNodeVisited(entry, depth + 1);
                 default:
-                    return 1 + $.numOfNodeVisited(entry, depth+1);
+                    return 1 + $.numOfNodeVisited(entry, depth + 1);
             }
         }
-        return 1 + a.numOfNodeVisited(entry, depth+1) + c.numOfNodeVisited(
-            entry, depth+1) + g.numOfNodeVisited(entry, depth+1) + t
-                .numOfNodeVisited(entry, depth+1) + $.numOfNodeVisited(entry,
-                    depth+1);
+        return 1 + a.numOfNodeVisited(entry, depth + 1) + c.numOfNodeVisited(
+            entry, depth + 1) + g.numOfNodeVisited(entry, depth + 1) + t
+                .numOfNodeVisited(entry, depth + 1) + $.numOfNodeVisited(entry,
+                    depth + 1);
+    }
+
+
+    private Baseclass returnLeafNode() {
+        boolean aLeaf = a instanceof LeafNode;
+        boolean cLeaf = c instanceof LeafNode;
+        boolean gLeaf = g instanceof LeafNode;
+        boolean tLeaf = t instanceof LeafNode;
+        boolean $Leaf = $ instanceof LeafNode;
+        if (this.numOfFlyNodes() == 4) {
+            if (this.numOfLeafNodes() == 1) {
+                if (aLeaf)
+                    return a;
+                if (cLeaf)
+                    return c;
+                if (gLeaf)
+                    return g;
+                if (tLeaf)
+                    return t;
+                if ($Leaf)
+                    return $;
+            }
+        }
+        return this;
+
+    }
+
+
+    private int numOfFlyNodes() {
+        flyweightnode flw = new flyweightnode();
+        return Boolean.compare(a.equals(flw), false) + Boolean.compare(c.equals(
+            flw), false) + Boolean.compare(g.equals(flw), false) + Boolean
+                .compare(t.equals(flw), false) + Boolean.compare($.equals(flw),
+                    false);
+    }
+
+
+    private int numOfLeafNodes() {
+        boolean aLeaf = a instanceof LeafNode;
+        boolean cLeaf = c instanceof LeafNode;
+        boolean gLeaf = g instanceof LeafNode;
+        boolean tLeaf = t instanceof LeafNode;
+        boolean $Leaf = $ instanceof LeafNode;
+
+        return Boolean.compare(aLeaf, false) + Boolean.compare(cLeaf, false)
+            + Boolean.compare(gLeaf, false) + Boolean.compare(tLeaf, false)
+            + Boolean.compare($Leaf, false);
     }
 
     // do we have to implement equals or comparison method at all?

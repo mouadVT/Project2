@@ -20,6 +20,11 @@ public class LeafNode extends Baseclass {
         this.data = seq;
         this.level = d;
     }
+    /**
+     * 
+     */
+    public LeafNode() {
+    }
 
 
     /**
