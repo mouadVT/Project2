@@ -51,7 +51,7 @@ public class flyweightnode extends Baseclass {
      */
     @Override
     public void search(String seq, int depth) {
-        // TODO Auto-generated method stub
+        System.out.println("no sequence found");
     }
 
 
@@ -60,7 +60,8 @@ public class flyweightnode extends Baseclass {
      */
     @Override
     public Baseclass remove(String seq, int depth) {
-        // TODO Auto-generated method stub
-        return fw;
+        System.out.println("Sequence " + seq + " does not exist");
+        return this;
+
     }
 }

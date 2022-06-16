@@ -24,4 +24,12 @@
      * Removes a sequence from the tree.
      */
     public abstract Baseclass remove(String entry, int depth);
+    
+    /**
+     * returns number of nodes visited 
+     * @param entry
+     * @param depth
+     * @return integer
+     */
+    public abstract int numOfNodeVisited(String entry, int depth);
 }
