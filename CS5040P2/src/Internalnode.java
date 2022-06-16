@@ -172,7 +172,9 @@ public class Internalnode extends Baseclass {
                 break;
         }
     }
-    
+    public int numOfNodeVisited(String entry, int depth) {
+        return depth;
+        }
     // do we have to implement equals or comparison method at all?
     
     // 

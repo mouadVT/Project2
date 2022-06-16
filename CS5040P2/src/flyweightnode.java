@@ -64,4 +64,10 @@ public class flyweightnode extends Baseclass {
         return this;
 
     }
+    /**
+     * 
+     */
+    public int numOfNodeVisited(String entry, int depth) {
+        return 1;
+        }
 }

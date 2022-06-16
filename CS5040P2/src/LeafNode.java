@@ -257,4 +257,10 @@ public class LeafNode extends Baseclass {
 
         return " A:" + a2 + " C:" + c2 + " G:" + g2 + " T:" + t2 + " ";
     }
+    /**
+     * 
+     */
+    public int numOfNodeVisited(String entry, int depth) {
+        return 1;
+        }
 }
