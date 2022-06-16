@@ -16,13 +16,18 @@ public class InternalnodeTest extends TestCase  {
      */
     public void testInsert() {
         // print
-        System.out.println(interNode.insert("AG", 0));  
+        
+        //java.lang.StringIndexOutOfBoundsException: String index out of range: 4
+        interNode.insert("ACGT", 0);
+        interNode.insert("AAAA", 0);
+        interNode.insert("AA", 0);
+        interNode.print(0);
     }
     /**
      * Test the print method.
      */
     public void testPrint() {
-        System.out.println(interNode.print(0));  
+        //System.out.println(interNode.print(0));  
     }
     /**
      * Test the search method.
@@ -34,6 +39,6 @@ public class InternalnodeTest extends TestCase  {
      * Test the Remove method.
      */
     public void testRemove() {
-        System.out.println(interNode.remove("AG", 0));  
+        //System.out.println(interNode.remove("AG", 0));  
     }
 }

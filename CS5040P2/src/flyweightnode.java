@@ -36,14 +36,14 @@ public class flyweightnode extends Baseclass {
      * Prints out "E" for empty leaf node.
      */
     @Override
-    public String print(int depth) {
+    public void print(int depth) {
         String st0 = "";
         String st1 = "E";
         for (int i = 0; i < depth; i++) {
             st0 += " ";
         }
         System.out.println(st0 + st1);
-        return st0 + st1;
+        //return st0 + st1;
     }
 
 

@@ -45,29 +45,28 @@ public class LeafNode extends Baseclass {
             return this;
         }
         else {
-        intNode = new Internalnode(); // a leafnode, char  
-        
-        // new sequence being inserted
-        
-        
-        // change the original leaf node to becomes a child
-        if (data.charAt(level) == 'A') {
-            ((Internalnode)intNode).setTheLeafNode(data, level, 'A');
+            intNode = new Internalnode();
+            
+            // change the original leaf node to becomes a child
+            if (data.charAt(level) == 'A') {
+                ((Internalnode)intNode).setTheLeafNode(data, level, 'A');
+            }
+            else if (data.charAt(level) == 'C') {
+                ((Internalnode)intNode).setTheLeafNode(data, level, 'C');
+            }
+            else if (data.charAt(level) == 'G') {
+                ((Internalnode)intNode).setTheLeafNode(data, level, 'G');
+            }
+            else if (data.charAt(level) == 'T') {
+                ((Internalnode)intNode).setTheLeafNode(data, level, 'T');
+            }
+            else {
+                ((Internalnode)intNode).setTheLeafNode(data, level, '$');
+            }
+            
+            // insert new sequence
+            return (Internalnode)intNode.insert(seq, level+1);
         }
-        else if (data.charAt(level) == 'C') {
-            ((Internalnode)intNode).setTheLeafNode(data, level, 'C');
-        }
-        else if (data.charAt(level) == 'G') {
-            ((Internalnode)intNode).setTheLeafNode(data, level, 'G');
-        }
-        else if (data.charAt(level) == 'T') {
-            ((Internalnode)intNode).setTheLeafNode(data, level, 'T');
-        }
-        else {
-            ((Internalnode)intNode).setTheLeafNode(data, level, '$');
-        }
-        }
-        return (Internalnode)intNode.insert(seq, level+1);
     }
 
 
@@ -75,14 +74,14 @@ public class LeafNode extends Baseclass {
      * Prints out DNA sequence of leaf node.
      */
     @Override
-    public String print(int depth) {
+    public void print(int depth) {
         String st0 = "";
         String st1 = data;
         for (int i = 0; i < depth; i++) {
             st0 += " ";
         }
         System.out.println(st0 + st1);
-        return st0 + st1;
+        //return st0 + st1;
     }
 
 

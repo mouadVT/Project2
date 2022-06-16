@@ -57,6 +57,29 @@ public class Internalnode extends Baseclass {
 
     @Override
     public Baseclass insert(String entry, int depth) {
+        /*
+        if (depth < entry.length()) {
+            if (entry.charAt(depth) == 'A') {
+                a = a.insert(entry, depth+1);
+            }
+            else if (entry.charAt(depth) == 'C') {
+                c = c.insert(entry, depth+1);
+            }
+            else if (entry.charAt(depth) == 'G') {
+                g = g.insert(entry, depth+1);
+            }
+            else if (entry.charAt(depth) == 'T') {
+                t = t.insert(entry, depth+1);
+            }
+            else if (entry.charAt(depth) == '$') {
+                $ = $.insert(entry, depth+1);
+            }
+            return this;
+        }
+        return this;
+        */
+        
+        
         if (depth < entry.length()) {
             if (entry.charAt(depth) == 'A') {
                 a = a.insert(entry, depth+1);
@@ -72,13 +95,13 @@ public class Internalnode extends Baseclass {
             }
             return this;
         }
-        $ = $.insert(entry, depth+1);
+        $ = $.insert(entry, depth); // removed +1
         return this;
     }
 
 
     @Override
-    public String print(int depth) {
+    public void print(int depth) {
         String st0 = "";
         String st1 = "I";
         for (int i = 0; i < depth; i++) {
@@ -90,7 +113,7 @@ public class Internalnode extends Baseclass {
         g.print(depth+1);
         t.print(depth+1);
         $.print(depth+1);
-        return st0 + st1;
+        //return st0 + st1;
     }
 
 
