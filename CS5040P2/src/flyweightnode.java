@@ -40,7 +40,7 @@ public class flyweightnode extends Baseclass {
         String st0 = "";
         String st1 = "E";
         for (int i = 0; i < depth; i++) {
-            st0 += " ";
+            st0 += "  ";
         }
         System.out.println(st0 + st1);
     }
@@ -60,14 +60,19 @@ public class flyweightnode extends Baseclass {
      */
     @Override
     public Baseclass remove(String seq, int depth) {
-        System.out.println("Sequence " + seq + " does not exist");
+        System.out.println("sequence " + seq + " does not exist");
         return this;
-
     }
+    
+    
     /**
+     * Returns number of nodes visited.
      * 
+     * @param entry
+     * @param depth
+     * @return integer
      */
     public int numOfNodeVisited(String entry, int depth) {
         return 1;
-        }
+    }
 }

@@ -121,11 +121,30 @@ public class Internalnode extends Baseclass {
             else if (entry.charAt(depth) == 'G') {
                 g.search(entry, depth + 1);
             }
-            else {
+            else if (entry.charAt(depth) == 'T') {
                 t.search(entry, depth + 1);
             }
+            else {
+                $.search(entry, depth);
+            }
         }
-        $.search(entry, depth);
+        else {
+            if (!(a instanceof flyweightnode)) {
+                a.search(entry, depth + 1);
+            }
+            if (!(c instanceof flyweightnode)) {
+                c.search(entry, depth + 1);
+            }
+            if (!(g instanceof flyweightnode)) {
+                g.search(entry, depth + 1);
+            }
+            if (!(t instanceof flyweightnode)) {
+                t.search(entry, depth + 1);
+            }
+            if (!($ instanceof flyweightnode)) {
+                $.search(entry, depth + 1);
+            }
+        }
     }
 
 

@@ -56,20 +56,22 @@ public class LeafNode extends Baseclass {
             intNode = new Internalnode();
 
             // change the original leaf node to becomes a child
-            if (data.charAt(level) == 'A') {
-                ((Internalnode)intNode).setTheLeafNode(data, level, 'A');
-            }
-            else if (data.charAt(level) == 'C') {
-                ((Internalnode)intNode).setTheLeafNode(data, level, 'C');
-            }
-            else if (data.charAt(level) == 'G') {
-                ((Internalnode)intNode).setTheLeafNode(data, level, 'G');
-            }
-            else if (data.charAt(level) == 'T') {
-                ((Internalnode)intNode).setTheLeafNode(data, level, 'T');
-            }
-            else {
-                ((Internalnode)intNode).setTheLeafNode(data, level, '$');
+            if (level < data.length()) {
+                if (data.charAt(level) == 'A') {
+                    ((Internalnode)intNode).setTheLeafNode(data, level, 'A');
+                }
+                else if (data.charAt(level) == 'C') {
+                    ((Internalnode)intNode).setTheLeafNode(data, level, 'C');
+                }
+                else if (data.charAt(level) == 'G') {
+                    ((Internalnode)intNode).setTheLeafNode(data, level, 'G');
+                }
+                else if (data.charAt(level) == 'T') {
+                    ((Internalnode)intNode).setTheLeafNode(data, level, 'T');
+                }
+                else {
+                    ((Internalnode)intNode).setTheLeafNode(data, level, '$');
+                }
             }
 
             // insert new sequence
@@ -87,7 +89,7 @@ public class LeafNode extends Baseclass {
             String st0 = "";
             String st1 = data;
             for (int i = 0; i < depth; i++) {
-                st0 += " ";
+                st0 += "  ";
             }
             System.out.println(st0 + st1 + " " + data.length());
         }
@@ -95,7 +97,7 @@ public class LeafNode extends Baseclass {
             String st0 = "";
             String st1 = data;
             for (int i = 0; i < depth; i++) {
-                st0 += " ";
+                st0 += "  ";
             }
             System.out.println(st0 + st1 + this.sequenceStats(data));
         }
@@ -103,7 +105,7 @@ public class LeafNode extends Baseclass {
             String st0 = "";
             String st1 = data;
             for (int i = 0; i < depth; i++) {
-                st0 += " ";
+                st0 += "  ";
             }
             System.out.println(st0 + st1);
         }
@@ -115,106 +117,36 @@ public class LeafNode extends Baseclass {
      */
     @Override
     public void search(String seq, int level) {
-
-        if (seq.length() <= data.length()) {
-            if (lengthValidation(seq, 1)) {
-                System.out.println("sequence: " + data);
-            }
-            else {
-                System.out.println("no sequence found");
-            }
+        intNode = new Internalnode();
+        
+        if (seq.charAt(seq.length() - 1) == '$' && seq.substring(0, seq.length() - 1).equals(data)) {
+            //System.out.println("# of nodes visited: " + intNode.numOfNodeVisited(seq, level));
+            System.out.println("sequence: " + seq.substring(0, seq.length() - 1));
         }
-        else if (lengthValidation(seq, 2)) {
-            if (lengthValidation(seq, 3)) {
-                System.out.println("sequence: " + data);
-            }
-            else {
-                System.out.println("no sequence found");
-            }
+        else if (seq.length() <= data.length() && data.substring(0, seq.length()).equals(seq)) {
+            //System.out.println("# of nodes visited: " + intNode.numOfNodeVisited(seq, level));
+            System.out.println("sequence: " + data);
         }
         else {
             System.out.println("no sequence found");
         }
-
-        /**
-         * int visited = 0;
-         * boolean dollar = false;
-         * 
-         * //checks if sequence has $
-         * for (int i = 0; i < seq.length(); i++) {
-         * if (seq.charAt(i) == '$') {
-         * dollar = true;
-         * }
-         * }
-         * 
-         * if (dollar == true) {
-         * // sequence found
-         * if (seq.equals(this.getSeq())) {
-         * System.out.println("# of nodes visited: " + visited);
-         * System.out.println("sequence: " + seq);
-         * }
-         * else {
-         * intNode = new Internalnode();
-         * 
-         * if (seq.charAt(level) == 'A') {
-         * //Baseclass child = ((Internalnode)intNode).getChild('A');
-         * if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() >
-         * 0) {
-         * visited += 1;
-         * }
-         * 
-         * intNode.search(seq, level);
-         * }
-         * else if (seq.charAt(level) == 'C') {
-         * //Baseclass child = ((Internalnode)intNode).getChild('C');
-         * if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() >
-         * 0) {
-         * visited += 1;
-         * }
-         * 
-         * intNode.search(seq, level);
-         * }
-         * else if (seq.charAt(level) == 'G') {
-         * //Baseclass child = ((Internalnode)intNode).getChild('G');
-         * if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() >
-         * 0) {
-         * visited += 1;
-         * }
-         * 
-         * intNode.search(seq, level);
-         * }
-         * else if (seq.charAt(level) == 'T') {
-         * //Baseclass child = ((Internalnode)intNode).getChild('T');
-         * if (((LeafNode)((Internalnode)intNode).getLeaf()).getSeq().length() >
-         * 0) {
-         * visited += 1;
-         * }
-         * 
-         * intNode.search(seq, level);
-         * }
-         * }
-         * }
-         * else {
-         * //if dollar == false
-         * }
-         */
     }
 
-
+    
+    /*
     private boolean lengthValidation(String seq, int num) {
 
         if (num == 1) {
             return data.substring(0, seq.length()).equals(seq);
-
         }
         else if (num == 2) {
-            return seq.substring(seq.length() - 1).equals("$");
-
+            return data.substring(seq.length() - 1).equals("$");
         }
         else {
-            return seq.substring(0, seq.length() - 1).equals(data);
+            return data.substring(0, seq.length() - 1).equals(data);
         }
     }
+    */
 
 
     /**
@@ -267,5 +199,5 @@ public class LeafNode extends Baseclass {
      */
     public int numOfNodeVisited(String entry, int depth) {
         return 1;
-        }
+    }
 }

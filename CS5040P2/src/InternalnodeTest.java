@@ -1,6 +1,12 @@
-
 import student.TestCase;
 
+/**
+ * Tests Internalnode methods.
+ * 
+ * @author James Jang (jangwool)
+ * @author Mouad Ait Taleb Ali (mouad)
+ * @version 06/08/2022
+ */
 public class InternalnodeTest extends TestCase  {
     private Baseclass interNode;
 
@@ -10,26 +16,27 @@ public class InternalnodeTest extends TestCase  {
     public void setUp() {
        interNode= new Internalnode();
     }
+    
     /**
      * Test the insert() method.
      */
     public void testInsert() {
-        // print
-        
         //java.lang.StringIndexOutOfBoundsException: String index out of range: 4
         interNode.insert("ACGT", 0);
-        interNode.insert("AAAA", 0);
-        interNode.insert("AA", 0);
-        interNode.insert("AAACCCCGGTGAAAACGTA", 0);
-        interNode.insert("ACTGGGAA", 0);
+        //interNode.insert("AAAA", 0);
+        //interNode.insert("AA", 0);
+        //interNode.insert("AAACCCCGGTGAAAACGTA", 0);
+        //interNode.insert("ACTGGGAA", 0);
         interNode.print(0, "");
     }
+    
     /**
      * Test the print method.
      */
     public void testPrint() {
         //System.out.println(interNode.print(0));  
     }
+    
     /**
      * Test the search method.
      */
@@ -38,12 +45,15 @@ public class InternalnodeTest extends TestCase  {
         interNode.insert("AAAA", 0);
         interNode.insert("AA", 0);
         
-        interNode.search("AA$", 0);  
+        interNode.search("AA$", 0);
+        
+        interNode.print(0, "");
     }
+    
     /**
-     * Test the Remove method.
+     * Test the remove method.
      */
     public void testRemove() {
-        //System.out.println(interNode.remove("AG", 0));  
+        //System.out.println(interNode.remove("AG", 0));
     }
 }

@@ -1,8 +1,7 @@
-
 import student.TestCase;
 
 public class DNAtreeTest extends TestCase  {
-    private DNAtree tree ;
+    private DNAtree tree;
 
     /**
      * Sets up each test method.

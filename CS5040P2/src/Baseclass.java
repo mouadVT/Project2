@@ -1,7 +1,7 @@
 /**
  * DNA tree node abstract class that defines operations for nodes.
  */
- public abstract class Baseclass {
+public abstract class Baseclass {
     /**
      * Inserts sequence into tree node.
      */
@@ -24,9 +24,11 @@
      * Removes a sequence from the tree.
      */
     public abstract Baseclass remove(String entry, int depth);
-    
+
+
     /**
-     * returns number of nodes visited 
+     * Returns number of nodes visited.
+     * 
      * @param entry
      * @param depth
      * @return integer

@@ -42,39 +42,32 @@ public class LeafNodeTest extends TestCase {
      */
     public void testInsert() {      
         leaf2 = new flyweightnode();
-        //leaf2.print(0);
+        //leaf2.print(0, "");
         
         // FW -> leaf
         leaf2 = leaf2.insert("ACGT", 0);
-        //leaf2.print(0);
+        //leaf2.print(0, "");
         
         //already exists (nothing changes)
-        //leaf2 = leaf2.insert("ACGT", 0);
-        //leaf2.print(0);
+        leaf2 = leaf2.insert("ACGTA", 0);
+        leaf2.print(0, "");
         
         // PROBLEMS:
         // if 2 or more consecutive chars, too many internal nodes
         // also if second insert is bigger than first and same letters
         
         // leaf -> internal
-        leaf2 = leaf2.insert("AAAA", 0);
-        //leaf2.print(0);
-        
-        //Baseclass parent = leaf2;
+        //leaf2 = leaf2.insert("AAAA", 0);
+        //leaf2.print(0, "");
 
-        //assertEquals("ACGT", ((LeafNode)((Internalnode)leaf2).getChild('A')).getSeq());
-        //assertEquals("AGTA", ((LeafNode)((Internalnode)leaf2).getChild('G')).getSeq());
+        //assertEquals("AAAA", ((LeafNode)((Internalnode)((Internalnode)leaf2).getChild('A')).getChild('A')).getSeq());
+        //assertEquals("ACGT", ((LeafNode)((Internalnode)((Internalnode)leaf2).getChild('A')).getChild('C')).getSeq());
         
-        leaf2 = leaf2.insert("AA", 0);
-        //leaf2.print(0);
+        //leaf2 = leaf2.insert("AA", 0);
+        //leaf2.print(0, "");
+
         
-        //assertEquals("AA", ((LeafNode)((Internalnode)parent).getChild('$')).getSeq());
-        //assertEquals("AAAA", ((LeafNode)((Internalnode)parent).getChild('A')).getSeq());
-        
-        leaf2 = leaf2.insert("AAACCCCGGTGAAAACGTA", 0);
-        leaf2.print(0, "");
-        
-        //assertEquals("AAAA", ((LeafNode)((Internalnode)leaf2).getChild('A')).getSeq());
-        //assertEquals("AAACCCCGGTGAAAACGTA", ((LeafNode)((Internalnode)leaf2).getChild('C')).getSeq());
+        //leaf2 = leaf2.insert("AAACCCCGGTGAAAACGTA", 0);
+        //leaf2.print(0, "");
     }
 }
