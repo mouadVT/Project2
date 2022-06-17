@@ -16,7 +16,9 @@ public class LeafNode extends Baseclass {
      * leaf constructor
      * 
      * @param seq
+     *            (String for DNA sequence)
      * @param d
+     *            (depth/level of node)
      */
     public LeafNode(String seq, int d) {
         this.data = seq;
@@ -24,14 +26,9 @@ public class LeafNode extends Baseclass {
 
 
     /**
-     * constructor
-     */
-    public LeafNode() {
-    }
-
-
-    /**
      * Returns data (sequence) in node.
+     * 
+     * @return DNA sequence
      */
     public String getSeq() {
         return data;
@@ -202,12 +199,13 @@ public class LeafNode extends Baseclass {
 
 
     /**
-     * returns number of nodes for the leaf nod
+     * returns number of nodes for the leaf node
      * 
-     * @param seq
+     * @param entry
      *            (String of DNA sequence)
      * @param depth
      *            (depth/level of new node)
+     * @return number of nodes visited
      */
     public int numOfNodeVisited(String entry, int depth) {
         return 1;

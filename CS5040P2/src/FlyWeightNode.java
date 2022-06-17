@@ -1,14 +1,11 @@
 /**
- * flyweightnode class.
+ * FlyWeightNode class.
  * 
  * @author James Jang (jangwool)
  * @author Mouad Ait Taleb Ali (mouad)
  * @version 06/08/2022
  */
 public class FlyWeightNode extends Baseclass {
-
-    private Baseclass fw;
-
     /**
      * Default constructor.
      */
@@ -29,7 +26,7 @@ public class FlyWeightNode extends Baseclass {
      */
     @Override
     public Baseclass insert(String seq, int depth) {
-        fw = new LeafNode(seq, depth);
+        Baseclass fw = new LeafNode(seq, depth);
         System.out.println("sequence " + seq + " inserted at level " + depth);
         return fw;
     }
@@ -58,7 +55,7 @@ public class FlyWeightNode extends Baseclass {
     /**
      * Finds all sequences that match the given sequence.
      * 
-     * @param entry
+     * @param seq
      *            (String of DNA sequence)
      * @param depth
      *            (depth/level of node)
@@ -72,10 +69,11 @@ public class FlyWeightNode extends Baseclass {
     /**
      * Removes a sequence from the tree.
      * 
-     * @param entry
+     * @param seq
      *            (String of DNA sequence)
      * @param depth
      *            (depth/level of node)
+     * @return removed node
      */
     @Override
     public Baseclass remove(String seq, int depth) {

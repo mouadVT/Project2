@@ -1,7 +1,7 @@
 import student.TestCase;
 
 /**
- * Tests flyweightnode methods.
+ * Tests FlyWeightNode methods.
  * 
  * @author James Jang (jangwool)
  * @author Mouad Ait Taleb Ali (mouad)
