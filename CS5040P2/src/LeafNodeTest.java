@@ -32,7 +32,7 @@ public class LeafNodeTest extends TestCase {
      * Tests print() method.
      */
     public void testPrint() {
-        System.out.println(leaf.sequenceStats("GCT"));
+        //System.out.println(leaf.sequenceStats("GCT"));
     }
 
 

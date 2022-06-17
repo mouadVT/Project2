@@ -59,6 +59,7 @@ public class LeafNode extends Baseclass {
                 else {
                     ((Internalnode)intNode).setTheLeafNode(data, level, '$');
                 }
+                return this;
             }
             return (Internalnode)intNode.insert(seq, level);
         }
@@ -200,5 +201,5 @@ public class LeafNode extends Baseclass {
     public int numOfNodeVisited(String entry, int depth) {
         return 1;
     }
-    
+
 }
