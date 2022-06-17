@@ -2,7 +2,6 @@ import student.TestCase;
 
 /**
  * Tests LeafNode methods.
- * 
  * @author James Jang (jangwool)
  * @author Mouad Ait Taleb Ali (mouad)
  * @version 06/08/2022
