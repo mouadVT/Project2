@@ -26,28 +26,6 @@ public class Internalnode extends Baseclass {
 
 
     /**
-     * Returns child if it is a leaf node.
-     * 
-     * @return leaf node
-     */
-    public Baseclass getLeaf() {
-        if (a instanceof LeafNode) {
-            return a;
-        }
-        else if (c instanceof LeafNode) {
-            return c;
-        }
-        else if (g instanceof LeafNode) {
-            return g;
-        }
-        else if (t instanceof LeafNode) {
-            return t;
-        }
-        return t;
-    }
-
-
-    /**
      * Inserts sequence into internal node.
      * 
      * @param entry
