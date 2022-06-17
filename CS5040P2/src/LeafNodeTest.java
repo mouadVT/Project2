@@ -76,7 +76,6 @@ public class LeafNodeTest extends TestCase {
             .getHistory());
         systemOut().clearHistory();
 
-        // leaf -> internal
         leaf2 = leaf2.insert("C", 0);
 
         assertFuzzyEquals("sequence C inserted at level 1", systemOut()

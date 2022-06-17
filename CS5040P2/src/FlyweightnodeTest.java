@@ -10,9 +10,7 @@ import student.TestCase;
 public class FlyweightnodeTest extends TestCase {
 
     private Baseclass fw;
-    
-    
-    
+
     /**
      * Sets up each test method.
      */
@@ -26,6 +24,9 @@ public class FlyweightnodeTest extends TestCase {
      */
     public void testInsert() {
         fw = fw.insert("ACGT", 0);
+        assertFuzzyEquals("sequence ACGT inserted at level 0", systemOut()
+            .getHistory());
+        systemOut().clearHistory();
     }
 
 
@@ -33,13 +34,19 @@ public class FlyweightnodeTest extends TestCase {
      * Tests print() method.
      */
     public void testPrint() {
+        fw.print(0, "");
+        assertFuzzyEquals("E", systemOut().getHistory());
+        systemOut().clearHistory();
     }
 
 
     /**
      * Test the search method.
      */
-    public void testSerch() {
+    public void testSearch() {
+        fw.search("A", 0);
+        assertFuzzyEquals("no sequence found", systemOut().getHistory());
+        systemOut().clearHistory();
     }
 
 
@@ -47,6 +54,10 @@ public class FlyweightnodeTest extends TestCase {
      * test the remove method
      */
     public void testRemove() {
+        fw.remove("A", 0);
+        assertFuzzyEquals("sequence A does not exist", systemOut()
+            .getHistory());
+        systemOut().clearHistory();
     }
 
 
@@ -54,5 +65,6 @@ public class FlyweightnodeTest extends TestCase {
      * Test the Number Of Node Visited
      */
     public void testNumOfNodeVisited() {
+        assertEquals(1, fw.numOfNodeVisited("A", 0));
     }
 }
