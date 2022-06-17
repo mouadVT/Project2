@@ -89,7 +89,7 @@ public class LeafNodeTest extends TestCase {
         leaf2.print(0, "");
         */
         
-        
+      
         // FW -> leaf
         leaf2 = leaf2.insert("A", 0);
         leaf2 = leaf2.remove("A", 0);
