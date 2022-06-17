@@ -11,17 +11,20 @@ public class LeafNode extends Baseclass {
 
     private String data;
     private Baseclass intNode;
-    private int level;
 
     /**
-     * LeafNode constructor.
+     * leaf constructor
+     * 
+     * @param seq
+     * @param d
      */
     public LeafNode(String seq, int d) {
         this.data = seq;
-        this.level = d;
     }
+
+
     /**
-     * 
+     * constructor
      */
     public LeafNode() {
     }
@@ -41,21 +44,18 @@ public class LeafNode extends Baseclass {
      * 
      * @param seq
      *            (String of DNA sequence)
-     * @param d
+     * @param level
      *            (depth/level of new node)
+     * @return leaf the node with data
      */
     @Override
     public Baseclass insert(String seq, int level) {
-
-        // sequence already exists
         if (seq.equals(data)) {
             System.out.println("sequence " + data + " already exists");
             return this;
         }
         else {
             intNode = new Internalnode();
-
-            // change the original leaf node to becomes a child
             if (level < data.length()) {
                 if (data.charAt(level) == 'A') {
                     ((Internalnode)intNode).setTheLeafNode(data, level, 'A');
@@ -73,15 +73,18 @@ public class LeafNode extends Baseclass {
                     ((Internalnode)intNode).setTheLeafNode(data, level, '$');
                 }
             }
-
-            // insert new sequence
             return (Internalnode)intNode.insert(seq, level);
         }
     }
 
 
     /**
-     * Prints out DNA sequence of leaf node.
+     * prints the tree in tree moods
+     * 
+     * @param entry
+     *            (String of DNA sequence)
+     * @param depth
+     *            (depth/level of new node)
      */
     @Override
     public void print(int depth, String entry) {
@@ -114,17 +117,23 @@ public class LeafNode extends Baseclass {
 
     /**
      * Finds all sequences that match the given sequence.
+     * 
+     * @param seq
+     *            (String of DNA sequence)
+     * @param level
+     *            (depth/level of new node)
      */
     @Override
     public void search(String seq, int level) {
         intNode = new Internalnode();
-        
-        if (seq.charAt(seq.length() - 1) == '$' && seq.substring(0, seq.length() - 1).equals(data)) {
-            //System.out.println("# of nodes visited: " + intNode.numOfNodeVisited(seq, level));
-            System.out.println("sequence: " + seq.substring(0, seq.length() - 1));
+
+        if (seq.charAt(seq.length() - 1) == '$' && seq.substring(0, seq.length()
+            - 1).equals(data)) {
+            System.out.println("sequence: " + seq.substring(0, seq.length()
+                - 1));
         }
-        else if (seq.length() <= data.length() && data.substring(0, seq.length()).equals(seq)) {
-            //System.out.println("# of nodes visited: " + intNode.numOfNodeVisited(seq, level));
+        else if (seq.length() <= data.length() && data.substring(0, seq
+            .length()).equals(seq)) {
             System.out.println("sequence: " + data);
         }
         else {
@@ -132,25 +141,14 @@ public class LeafNode extends Baseclass {
         }
     }
 
-    
-    /*
-    private boolean lengthValidation(String seq, int num) {
-
-        if (num == 1) {
-            return data.substring(0, seq.length()).equals(seq);
-        }
-        else if (num == 2) {
-            return data.substring(seq.length() - 1).equals("$");
-        }
-        else {
-            return data.substring(0, seq.length() - 1).equals(data);
-        }
-    }
-    */
-
 
     /**
      * Removes a sequence from the tree.
+     * 
+     * @param seq
+     *            (String of DNA sequence)
+     * @param depth
+     *            (depth/level of new node)
      */
     @Override
     public Baseclass remove(String seq, int depth) {
@@ -164,6 +162,13 @@ public class LeafNode extends Baseclass {
     }
 
 
+    /**
+     * this method to provide the sequence status
+     * 
+     * @param seq
+     *            (String of DNA sequence)
+     * @return string that has the state of the sequence
+     */
     public String sequenceStats(String seq) {
         double a = 0;
         double c = 0;
@@ -194,8 +199,15 @@ public class LeafNode extends Baseclass {
 
         return " A:" + a2 + " C:" + c2 + " G:" + g2 + " T:" + t2 + " ";
     }
+
+
     /**
+     * returns number of nodes for the leaf nod
      * 
+     * @param seq
+     *            (String of DNA sequence)
+     * @param depth
+     *            (depth/level of new node)
      */
     public int numOfNodeVisited(String entry, int depth) {
         return 1;

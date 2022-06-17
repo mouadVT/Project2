@@ -5,24 +5,27 @@
  * @author Mouad Ait Taleb Ali (mouad)
  * @version 06/08/2022
  */
-public class flyweightnode extends Baseclass {
-    
+public class flyWeightNode extends Baseclass {
+
     private Baseclass fw;
-    
+
     /**
      * Default constructor.
      */
-    public flyweightnode() {
-        //empty
+    public flyWeightNode() {
+        // empty
     }
 
-    
+
     /**
      * Inserts sequence into empty leaf node
      * and converts flyweight into leaf node.
      * 
-     * @param seq (String of DNA sequence)
-     * @param depth (depth/level of node)
+     * @param seq
+     *            (String of DNA sequence)
+     * @param depth
+     *            (depth/level of node)
+     * @return fw flyweight node class
      */
     @Override
     public Baseclass insert(String seq, int depth) {
@@ -34,6 +37,12 @@ public class flyweightnode extends Baseclass {
 
     /**
      * Prints out "E" for empty leaf node.
+     * 
+     * @param entry
+     *            (String of DNA sequence)
+     * @param depth
+     *            (depth/level of node)
+     * 
      */
     @Override
     public void print(int depth, String entry) {
@@ -48,6 +57,11 @@ public class flyweightnode extends Baseclass {
 
     /**
      * Finds all sequences that match the given sequence.
+     * 
+     * @param entry
+     *            (String of DNA sequence)
+     * @param depth
+     *            (depth/level of node)
      */
     @Override
     public void search(String seq, int depth) {
@@ -57,20 +71,27 @@ public class flyweightnode extends Baseclass {
 
     /**
      * Removes a sequence from the tree.
+     * 
+     * @param entry
+     *            (String of DNA sequence)
+     * @param depth
+     *            (depth/level of node)
      */
     @Override
     public Baseclass remove(String seq, int depth) {
         System.out.println("sequence " + seq + " does not exist");
         return this;
     }
-    
-    
+
+
     /**
      * Returns number of nodes visited.
      * 
      * @param entry
+     *            (String of DNA sequence)
      * @param depth
-     * @return integer
+     *            (depth/level of node)
+     * @return integer number 1
      */
     public int numOfNodeVisited(String entry, int depth) {
         return 1;
