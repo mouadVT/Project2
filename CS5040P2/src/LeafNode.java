@@ -26,16 +26,6 @@ public class LeafNode extends Baseclass {
 
 
     /**
-     * Returns data (sequence) in node.
-     * 
-     * @return DNA sequence
-     */
-    public String getSeq() {
-        return data;
-    }
-
-
-    /**
      * Inserts sequence into leaf node
      * and converts leaf node into internal node.
      * 
