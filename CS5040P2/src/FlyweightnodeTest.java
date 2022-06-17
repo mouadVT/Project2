@@ -7,7 +7,7 @@ import student.TestCase;
  * @author Mouad Ait Taleb Ali (mouad)
  * @version 06/08/2022
  */
-public class flyweightnodeTest extends TestCase {
+public class FlyweightnodeTest extends TestCase {
     
     private Baseclass fw;
     
@@ -15,7 +15,7 @@ public class flyweightnodeTest extends TestCase {
      * Sets up each test method.
      */
     public void setUp() {
-        fw = new flyWeightNode();
+        fw = new FlyWeightNode();
     }
     
     

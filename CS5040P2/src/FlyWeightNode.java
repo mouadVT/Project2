@@ -5,14 +5,14 @@
  * @author Mouad Ait Taleb Ali (mouad)
  * @version 06/08/2022
  */
-public class flyWeightNode extends Baseclass {
+public class FlyWeightNode extends Baseclass {
 
     private Baseclass fw;
 
     /**
      * Default constructor.
      */
-    public flyWeightNode() {
+    public FlyWeightNode() {
         // empty
     }
 

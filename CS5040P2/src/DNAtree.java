@@ -33,7 +33,7 @@ public class DNAtree {
      * Default constructor.
      */
     public DNAtree() {
-        dnaTree = new flyWeightNode();
+        dnaTree = new FlyWeightNode();
     }
 
 
