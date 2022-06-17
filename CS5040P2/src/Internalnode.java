@@ -26,33 +26,6 @@ public class Internalnode extends Baseclass {
 
 
     /**
-     * Returns child node.
-     * 
-     * @param dna
-     *            (char)
-     * @return child node
-     */
-    public Baseclass getChild(char dna) {
-        if (dna == 'A') {
-            return a;
-        }
-        else if (dna == 'C') {
-            return c;
-        }
-        else if (dna == 'G') {
-            return g;
-        }
-        else if (dna == 'T') {
-            return t;
-        }
-        else if (dna == '$') {
-            return dollar;
-        }
-        return dollar;
-    }
-
-
-    /**
      * Returns child if it is a leaf node.
      * 
      * @return leaf node
