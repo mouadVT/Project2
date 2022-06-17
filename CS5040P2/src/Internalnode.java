@@ -166,7 +166,7 @@ public class Internalnode extends Baseclass {
 
 
     /**
-     * Sets data of leaf node.
+     * Set data of leaf node.
      * 
      * @param sequence
      *            (String of DNA sequence)

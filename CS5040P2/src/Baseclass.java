@@ -28,6 +28,7 @@ public abstract class Baseclass {
      */
     public abstract void print(int depth, String entry);
 
+    
 
     /**
      * Finds all sequences that match the given sequence.

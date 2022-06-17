@@ -81,7 +81,7 @@ public class DNAtree {
 
 
     /**
-     * takes a string
+     * Takes a string
      * 
      * @param line
      *            is a string

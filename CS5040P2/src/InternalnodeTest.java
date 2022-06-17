@@ -17,6 +17,7 @@ public class InternalnodeTest extends TestCase {
         interNode = new Internalnode();
     }
 
+    
 
     /**
      * Test the insert() method.
