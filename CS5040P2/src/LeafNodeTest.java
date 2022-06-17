@@ -40,16 +40,27 @@ public class LeafNodeTest extends TestCase {
      * Tests insert() method.
      */
     public void testInsert() {
-        leaf2 = new FlyWeightNode();
+        leaf2 = new LeafNode("A", 0);
+        leaf2 = leaf2.insert("A", 0);
+        leaf2 = leaf2.insert("G", 0);
+        leaf2 = leaf2.insert("T", 0);
+        leaf2 = leaf2.insert("C", 0);
+        leaf2 = leaf2.insert("AA", 0);
+        leaf2 = leaf2.insert("AG", 0);
+        leaf2 = leaf2.insert("AT", 0);
+        leaf2 = leaf2.insert("AC", 0);
+        leaf2 = leaf2.insert("AGC", 0);
+        leaf2.print(0, "");
+       // leaf2 = new FlyWeightNode();
         // leaf2.print(0, "");
 
         // FW -> leaf
-        leaf2 = leaf2.insert("ACGT", 0);
+       // leaf2 = leaf2.insert("ACGT", 0);
         // leaf2.print(0, "");
 
         // already exists (nothing changes)
-        leaf2 = leaf2.insert("ACGTA", 0);
-        leaf2.print(0, "");
+       // leaf2 = leaf2.insert("ACGTA", 0);
+        //leaf2.print(0, "");
 
         // PROBLEMS:
         // if 2 or more consecutive chars, too many internal nodes
