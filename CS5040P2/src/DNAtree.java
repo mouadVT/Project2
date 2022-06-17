@@ -80,6 +80,7 @@ public class DNAtree {
     }
 
 
+    
     /**
      * Takes a string
      * 

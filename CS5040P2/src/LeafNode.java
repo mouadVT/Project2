@@ -134,7 +134,6 @@ public class LeafNode extends Baseclass {
     }
 
 
-   
     /**
      * Removes a sequence from the tree.
      * 

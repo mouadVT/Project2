@@ -17,7 +17,6 @@ public abstract class Baseclass {
      */
     public abstract Baseclass insert(String entry, int depth);
 
-
     /**
      * Prints out DNA tree.
      * 

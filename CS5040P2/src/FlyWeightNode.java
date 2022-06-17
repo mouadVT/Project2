@@ -13,7 +13,6 @@ public class FlyWeightNode extends Baseclass {
         // empty
     }
 
-
     
     /**
      * Inserts sequence into empty leaf node
