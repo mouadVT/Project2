@@ -111,7 +111,7 @@ public class DNAtree {
                 }
                 break;
             case "remove":
-                dnaTree.remove(word[1], 0);
+                dnaTree = dnaTree.remove(word[1], 0);
                 break;
             default:
         }

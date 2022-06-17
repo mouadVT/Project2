@@ -1,6 +1,4 @@
 /**
- * The DNA sequences stored in the leaf nodes may be implemented using a linked
- * list
  * LeafNode class.
  * 
  * @author James Jang (jangwool)
@@ -22,6 +20,10 @@ public class LeafNode extends Baseclass {
      */
     public LeafNode(String seq, int d) {
         this.data = seq;
+    }
+    
+    public LeafNode() {
+        
     }
 
 
@@ -56,9 +58,12 @@ public class LeafNode extends Baseclass {
                 else if (data.charAt(level) == 'T') {
                     ((Internalnode)intNode).setTheLeafNode(data, level, 'T');
                 }
-                else {
-                    ((Internalnode)intNode).setTheLeafNode(data, level, '$');
-                }
+                //else {
+                //    ((Internalnode)intNode).setTheLeafNode(data, level, '$');
+                //}
+            }
+            else {
+                ((Internalnode)intNode).setTheLeafNode(data, level, '$');
             }
             return (Internalnode)intNode.insert(seq, level);
         }
@@ -200,5 +205,5 @@ public class LeafNode extends Baseclass {
     public int numOfNodeVisited(String entry, int depth) {
         return 1;
     }
-    
+
 }

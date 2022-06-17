@@ -138,22 +138,29 @@ public class Internalnode extends Baseclass {
      */
     @Override
     public Baseclass remove(String entry, int depth) {
+        if (this.numOfFlyNodes() == 4 && this.numOfLeafNodes() == 1) {
+            Baseclass leaf = new LeafNode();
+            return leaf;
+        }
         if (depth < entry.length()) {
             if (entry.charAt(depth) == 'A') {
-                a = a.remove(entry, ++depth);
+                a = a.remove(entry, depth + 1);
             }
             else if (entry.charAt(depth) == 'C') {
-                c = c.remove(entry, ++depth);
+                c = c.remove(entry, depth + 1);
             }
             else if (entry.charAt(depth) == 'G') {
-                g = g.remove(entry, ++depth);
+                g = g.remove(entry, depth + 1);
             }
             else {
-                t = t.remove(entry, ++depth);
+                t = t.remove(entry, depth + 1);
             }
             return this.returnLeafNode();
         }
-        dollar = dollar.remove(entry, depth);
+        else {
+            dollar = dollar.remove(entry, depth);
+        }
+
         return this.returnLeafNode();
     }
 
@@ -233,6 +240,7 @@ public class Internalnode extends Baseclass {
         boolean gLeaf = g instanceof LeafNode;
         boolean tLeaf = t instanceof LeafNode;
         boolean dollarLeaf = dollar instanceof LeafNode;
+        
         if (this.numOfFlyNodes() == 4 && this.numOfLeafNodes() == 1) {
             if (aLeaf) {
                 return a;
