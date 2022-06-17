@@ -141,10 +141,10 @@ public class LeafNode extends Baseclass {
     public Baseclass remove(String seq, int depth) {
         Baseclass flyNode = new FlyWeightNode();
         if (!data.equals(seq)) {
-            System.out.println("Sequence " + seq + " does not exist");
+            System.out.println("sequence " + seq + " does not exist");
             return this;
         }
-        System.out.println("Sequence " + seq + " removed");
+        System.out.println("sequence " + seq + " removed");
         return flyNode;
     }
 
@@ -184,7 +184,7 @@ public class LeafNode extends Baseclass {
         String g2 = String.format("%.2f", (g / seq.length()) * 100);
         String t2 = String.format("%.2f", (t / seq.length()) * 100);
 
-        return " A:" + a2 + " C:" + c2 + " G:" + g2 + " T:" + t2 + " ";
+        return " A:" + a2 + " C:" + c2 + " G:" + g2 + " T:" + t2;
     }
 
 
