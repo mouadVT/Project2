@@ -15,7 +15,7 @@ public class flyweightnodeTest extends TestCase {
      * Sets up each test method.
      */
     public void setUp() {
-        fw = new flyweightnode();
+        fw = new flyWeightNode();
     }
     
     

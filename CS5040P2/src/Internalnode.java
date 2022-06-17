@@ -17,11 +17,11 @@ public class Internalnode extends Baseclass {
      * Default constructor.
      */
     public Internalnode() {
-        this.a = new flyweightnode();
-        this.c = new flyweightnode();
-        this.g = new flyweightnode();
-        this.t = new flyweightnode();
-        this.dollar = new flyweightnode();
+        this.a = new flyWeightNode();
+        this.c = new flyWeightNode();
+        this.g = new flyWeightNode();
+        this.t = new flyWeightNode();
+        this.dollar = new flyWeightNode();
     }
 
 
@@ -157,19 +157,19 @@ public class Internalnode extends Baseclass {
             }
         }
         else {
-            if (!(a instanceof flyweightnode)) {
+            if (!(a instanceof flyWeightNode)) {
                 a.search(entry, depth + 1);
             }
-            if (!(c instanceof flyweightnode)) {
+            if (!(c instanceof flyWeightNode)) {
                 c.search(entry, depth + 1);
             }
-            if (!(g instanceof flyweightnode)) {
+            if (!(g instanceof flyWeightNode)) {
                 g.search(entry, depth + 1);
             }
-            if (!(t instanceof flyweightnode)) {
+            if (!(t instanceof flyWeightNode)) {
                 t.search(entry, depth + 1);
             }
-            if (!(dollar instanceof flyweightnode)) {
+            if (!(dollar instanceof flyWeightNode)) {
                 dollar.search(entry, depth + 1);
             }
         }
@@ -309,7 +309,7 @@ public class Internalnode extends Baseclass {
      * @return number of flyweight nodes
      */
     private int numOfFlyNodes() {
-        flyweightnode flw = new flyweightnode();
+        flyWeightNode flw = new flyWeightNode();
         return Boolean.compare(a.equals(flw), false) + Boolean.compare(c.equals(
             flw), false) + Boolean.compare(g.equals(flw), false) + Boolean
                 .compare(t.equals(flw), false) + Boolean.compare(dollar.equals(

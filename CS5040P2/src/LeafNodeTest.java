@@ -41,7 +41,7 @@ public class LeafNodeTest extends TestCase {
      * Tests insert() method.
      */
     public void testInsert() {      
-        leaf2 = new flyweightnode();
+        leaf2 = new flyWeightNode();
         //leaf2.print(0, "");
         
         // FW -> leaf

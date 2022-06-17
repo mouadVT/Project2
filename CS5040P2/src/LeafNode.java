@@ -152,7 +152,7 @@ public class LeafNode extends Baseclass {
      */
     @Override
     public Baseclass remove(String seq, int depth) {
-        Baseclass flyNode = new flyweightnode();
+        Baseclass flyNode = new flyWeightNode();
         if (!data.equals(seq)) {
             System.out.println("Sequence " + seq + " does not exist");
             return this;
