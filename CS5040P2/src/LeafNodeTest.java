@@ -27,7 +27,6 @@ public class LeafNodeTest extends TestCase {
         assertEquals(" A:25.00 C:25.00 G:25.00 T:25.00", ((LeafNode)leaf).sequenceStats("ACGT"));
     }
 
-
     /**
      * Tests print() method.
      */

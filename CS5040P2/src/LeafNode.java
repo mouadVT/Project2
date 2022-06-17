@@ -26,7 +26,6 @@ public class LeafNode extends Baseclass {
         
     }
 
-
     /**
      * Inserts sequence into leaf node
      * and converts leaf node into internal node.

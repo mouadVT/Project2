@@ -21,6 +21,7 @@ import java.util.Scanner;
 // during the discussion. I have violated neither the spirit nor
 // letter of this restriction.
 
+
 /**
  * @author James Jang (janwool))
  * @author Mouad Ait Taleb (mouad)

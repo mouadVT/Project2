@@ -13,6 +13,7 @@ public class Internalnode extends Baseclass {
     private Baseclass t;
     private Baseclass dollar;
 
+    
     /**
      * Default constructor.
      */

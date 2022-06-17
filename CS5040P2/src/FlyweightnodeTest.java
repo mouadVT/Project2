@@ -12,6 +12,7 @@ public class FlyweightnodeTest extends TestCase {
     private Baseclass fw;
     
     
+    
     /**
      * Sets up each test method.
      */
