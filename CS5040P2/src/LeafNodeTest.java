@@ -23,8 +23,7 @@ public class LeafNodeTest extends TestCase {
      * Tests getSeq() method.
      */
     public void testGetSeq() {
-        String seq = leaf.getSeq();
-        assertEquals(seq, leaf.getSeq());
+        
     }
     
     

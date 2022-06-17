@@ -22,7 +22,7 @@ import java.util.Scanner;
 // letter of this restriction.
 
 /**
- * @author james Jang (janwool))
+ * @author James Jang (janwool))
  * @author Mouad Ait Taleb (mouad)
  * @version (2022-06-05)
  */

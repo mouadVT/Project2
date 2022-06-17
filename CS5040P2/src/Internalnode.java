@@ -69,7 +69,7 @@ public class Internalnode extends Baseclass {
         String st0 = "";
         String st1 = "I";
         for (int i = 0; i < depth; i++) {
-            st0 += " ";
+            st0 += "  ";
         }
         System.out.println(st0 + st1);
         a.print(depth + 1, entry);
