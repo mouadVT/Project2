@@ -1,17 +1,31 @@
-insert A
-remove A
-print
-insert GAT
-insert ACG
-insert GTA
-insert GCAT
-insert G
-remove G
-remove G
-print
+       insert ACGT     
+    
 
-remove GGCT
-remove GCAA
-remove GAT
-remove GTA
-print
+
+ insert            AAAA   
+ insert AA
+insert                 AAACCCCGGTGAAAACGTA
+insert       ACTGGGAA          
+
+remove       ACGT         
+
+insert ACCTT
+insert ACTTA
+ 
+ print
+ 
+ insert TATA
+ insert TCG
+ 
+ print lengths
+ print stats
+ 
+ search         AAAA$
+                         search     AA
+ search      ACGT$
+  
+  
+           
+           
+              
+              

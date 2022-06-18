@@ -84,7 +84,7 @@ public class DNAtree {
      * @param count
      *            in an integer
      */
-    private void wordProcessing(String line, int count) {
+    public void wordProcessing(String line, int count) {
 
         String[] word = line.split(" \\s*");
 
