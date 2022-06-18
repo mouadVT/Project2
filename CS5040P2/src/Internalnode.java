@@ -54,7 +54,7 @@ public class Internalnode extends Baseclass {
         }
         dollar = dollar.insert(entry, depth + 1);
         return this;
-    }
+    } 
 
 
     /**
@@ -109,7 +109,7 @@ public class Internalnode extends Baseclass {
             }
         }
         else {
-            if (!(a instanceof FlyWeightNode)) {
+            if (!(a instanceof FlyWeightNode)) { 
                 a.search(entry, depth + 1);
             }
             if (!(c instanceof FlyWeightNode)) {
@@ -124,9 +124,9 @@ public class Internalnode extends Baseclass {
             if (!(dollar instanceof FlyWeightNode)) {
                 dollar.search(entry, depth + 1);
             }
-        }
+        }  
     }
-
+ 
 
     /**
      * Removes a sequence from the tree.
@@ -139,33 +139,29 @@ public class Internalnode extends Baseclass {
      */
     @Override
     public Baseclass remove(String entry, int depth) {
-        if (this.numOfFlyNodes() == 4 && this.numOfLeafNodes() == 1) {
-            Baseclass leaf = new LeafNode();
-            return leaf;
-        }
         if (depth < entry.length()) {
             if (entry.charAt(depth) == 'A') {
-                a = a.remove(entry, depth + 1);
+                a = a.remove(entry, ++depth);
             }
             else if (entry.charAt(depth) == 'C') {
-                c = c.remove(entry, depth + 1);
+                c = c.remove(entry, ++depth);
             }
             else if (entry.charAt(depth) == 'G') {
-                g = g.remove(entry, depth + 1);
+                g = g.remove(entry, ++depth);
             }
             else {
-                t = t.remove(entry, depth + 1);
+                t = t.remove(entry, ++depth);
             }
             return this.returnLeafNode();
         }
         else {
-            dollar = dollar.remove(entry, depth);
+            dollar = dollar.remove(entry, ++depth);
         }
 
         return this.returnLeafNode();
-    }
-
-    
+    } 
+ 
+     
     /**
      * Set data of leaf node.
      * 
