@@ -182,6 +182,7 @@ public class DNAtreeTest extends TestCase {
         systemOut().clearHistory();
     }
 
+
     /**
      * Tests wordProcessing() method.
      * 
@@ -192,33 +193,27 @@ public class DNAtreeTest extends TestCase {
         tree.wordProcessing("insert ACGT", 0);
         assertFuzzyEquals("sequence ACGT inserted at level 0", systemOut()
             .getHistory());
-        
+
         systemOut().clearHistory();
         tree.wordProcessing("search ACGT$", 0);
-        assertFuzzyEquals("# of nodes visited: 1\r\n"
-            + "sequence: ACGT", systemOut()
-            .getHistory());
-        
+        assertFuzzyEquals("# of nodes visited: 1\r\n" + "sequence: ACGT",
+            systemOut().getHistory());
+
         systemOut().clearHistory();
         tree.wordProcessing("search AC", 0);
-        assertFuzzyEquals("# of nodes visited: 1\r\n"
-            + "sequence: ACGT", systemOut()
-            .getHistory());
-        
+        assertFuzzyEquals("# of nodes visited: 1\r\n" + "sequence: ACGT",
+            systemOut().getHistory());
+
         systemOut().clearHistory();
         tree.wordProcessing("print", 0);
-        assertFuzzyEquals("tree dump:\r\n"
-            + "ACGT", systemOut()
-            .getHistory());
-        
+        assertFuzzyEquals("tree dump:\r\n" + "ACGT", systemOut().getHistory());
+
         systemOut().clearHistory();
         tree.wordProcessing("remove ACGT", 0);
-        assertFuzzyEquals("sequence ACGT removed", systemOut()
-            .getHistory());
-        
+        assertFuzzyEquals("sequence ACGT removed", systemOut().getHistory());
+
         systemOut().clearHistory();
         tree.wordProcessing("", 0);
-        assertFuzzyEquals("", systemOut()
-            .getHistory());
+        assertFuzzyEquals("", systemOut().getHistory());
     }
 }
