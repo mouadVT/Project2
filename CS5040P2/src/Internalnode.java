@@ -13,7 +13,6 @@ public class Internalnode extends Baseclass {
     private Baseclass t;
     private Baseclass dollar;
 
-    
     /**
      * Default constructor.
      */
@@ -54,7 +53,7 @@ public class Internalnode extends Baseclass {
         }
         dollar = dollar.insert(entry, depth + 1);
         return this;
-    } 
+    }
 
 
     /**
@@ -80,8 +79,7 @@ public class Internalnode extends Baseclass {
         dollar.print(depth + 1, entry);
     }
 
-   
-    
+
     /**
      * Finds all sequences that match the given sequence.
      * 
@@ -110,7 +108,7 @@ public class Internalnode extends Baseclass {
             }
         }
         else {
-            if (!(a instanceof FlyWeightNode)) { 
+            if (!(a instanceof FlyWeightNode)) {
                 a.search(entry, depth + 1);
             }
             if (!(c instanceof FlyWeightNode)) {
@@ -125,9 +123,9 @@ public class Internalnode extends Baseclass {
             if (!(dollar instanceof FlyWeightNode)) {
                 dollar.search(entry, depth + 1);
             }
-        }  
+        }
     }
- 
+
 
     /**
      * Removes a sequence from the tree.
@@ -160,9 +158,9 @@ public class Internalnode extends Baseclass {
         }
 
         return this.returnLeafNode();
-    } 
- 
-     
+    }
+
+
     /**
      * Set data of leaf node.
      * 
@@ -232,13 +230,13 @@ public class Internalnode extends Baseclass {
      * 
      * @return leaf node
      */
-    private Baseclass returnLeafNode() {
+    public Baseclass returnLeafNode() {
         boolean aLeaf = a instanceof LeafNode;
         boolean cLeaf = c instanceof LeafNode;
         boolean gLeaf = g instanceof LeafNode;
         boolean tLeaf = t instanceof LeafNode;
         boolean dollarLeaf = dollar instanceof LeafNode;
-        
+
         if (this.numOfFlyNodes() == 4 && this.numOfLeafNodes() == 1) {
             if (aLeaf) {
                 return a;
@@ -265,12 +263,16 @@ public class Internalnode extends Baseclass {
      * 
      * @return number of flyweight nodes
      */
-    private int numOfFlyNodes() {
-        FlyWeightNode flw = new FlyWeightNode();
-        return Boolean.compare(a.equals(flw), false) + Boolean.compare(c.equals(
-            flw), false) + Boolean.compare(g.equals(flw), false) + Boolean
-                .compare(t.equals(flw), false) + Boolean.compare(dollar.equals(
-                    flw), false);
+    public int numOfFlyNodes() {
+        boolean aLeaf = a instanceof FlyWeightNode;
+        boolean cLeaf = c instanceof FlyWeightNode;
+        boolean gLeaf = g instanceof FlyWeightNode;
+        boolean tLeaf = t instanceof FlyWeightNode;
+        boolean dollarLeaf = dollar instanceof FlyWeightNode;
+
+        return Boolean.compare(aLeaf, false) + Boolean.compare(cLeaf, false)
+            + Boolean.compare(gLeaf, false) + Boolean.compare(tLeaf, false)
+            + Boolean.compare(dollarLeaf, false);
     }
 
 
@@ -279,7 +281,7 @@ public class Internalnode extends Baseclass {
      * 
      * @return number of leaf nodes
      */
-    private int numOfLeafNodes() {
+    public int numOfLeafNodes() {
         boolean aLeaf = a instanceof LeafNode;
         boolean cLeaf = c instanceof LeafNode;
         boolean gLeaf = g instanceof LeafNode;

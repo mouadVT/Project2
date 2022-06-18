@@ -23,11 +23,6 @@ public class LeafNode extends Baseclass {
     }
 
 
-    public LeafNode() {
-        // empty
-    }
-
-
     /**
      * Inserts sequence into leaf node
      * and converts leaf node into internal node.

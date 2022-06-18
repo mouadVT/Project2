@@ -61,7 +61,132 @@ public class LeafNodeTest extends TestCase {
      */
     public void testInsert() {
         Baseclass leaf2 = new FlyWeightNode();
-
+        
+        
+        systemOut().clearHistory();
+        leaf2 = leaf2.insert("A", 0);
+        leaf2 = leaf2.insert("A", 0);
+        leaf2 = leaf2.insert("C", 0);
+        systemOut().clearHistory();
+        leaf2.print(0, "");
+        String output = "I\r\n"
+            + "  A\r\n"
+            + "  C\r\n"
+            + "  E\r\n"
+            + "  E\r\n"
+            + "  E";
+        String console = systemOut().getHistory();
+        assertFuzzyEquals(console, output);
+        
+        Baseclass leaf3 = new FlyWeightNode();
+        systemOut().clearHistory();
+        leaf3 = leaf3.insert("C", 0);
+        leaf3 = leaf3.insert("TAC", 0);
+        leaf3 = leaf3.insert("GCTA", 0);
+        systemOut().clearHistory();
+        leaf3.print(0, "");
+        output = "I\r\n"
+            + "  E\r\n"
+            + "  C\r\n"
+            + "  GCTA\r\n"
+            + "  TAC\r\n"
+            + "  E";
+        console = systemOut().getHistory();
+        assertFuzzyEquals(console, output);
+        
+        Baseclass leaf4 = new FlyWeightNode();
+        systemOut().clearHistory();
+        leaf4 = leaf4.insert("G", 0);
+        leaf4 = leaf4.insert("TAG", 0);
+        leaf4 = leaf4.insert("GCTA", 0);
+        leaf4 = leaf4.insert("ACGG", 0);
+        systemOut().clearHistory();
+        leaf4.print(0, "");
+        output = "I\r\n"
+            + "  ACGG\r\n"
+            + "  E\r\n"
+            + "  I\r\n"
+            + "    E\r\n"
+            + "    GCTA\r\n"
+            + "    E\r\n"
+            + "    E\r\n"
+            + "    G\r\n"
+            + "  TAG\r\n"
+            + "  E";
+        console = systemOut().getHistory();
+        assertFuzzyEquals(console, output);
+        
+        Baseclass leaf5 = new FlyWeightNode();
+        systemOut().clearHistory();
+        leaf5 = leaf5.insert("T", 0);
+        leaf5 = leaf5.insert("GAT", 0);
+        leaf5 = leaf5.insert("TCTTTTACATTTT", 0);
+        leaf5 = leaf5.insert("TCTTTTACATGAGAT", 0);
+        leaf5 = leaf5.insert("TTTAAGTACATTTGA", 0);
+        leaf5 = leaf5.insert("A", 0);
+        systemOut().clearHistory();
+        leaf5.print(0, "");
+        output = "I\r\n"
+            + "  A\r\n"
+            + "  E\r\n"
+            + "  GAT\r\n"
+            + "  I\r\n"
+            + "    E\r\n"
+            + "    I\r\n"
+            + "      E\r\n"
+            + "      E\r\n"
+            + "      E\r\n"
+            + "      I\r\n"
+            + "        E\r\n"
+            + "        E\r\n"
+            + "        E\r\n"
+            + "        I\r\n"
+            + "          E\r\n"
+            + "          E\r\n"
+            + "          E\r\n"
+            + "          I\r\n"
+            + "            E\r\n"
+            + "            E\r\n"
+            + "            E\r\n"
+            + "            I\r\n"
+            + "              I\r\n"
+            + "                E\r\n"
+            + "                I\r\n"
+            + "                  I\r\n"
+            + "                    E\r\n"
+            + "                    E\r\n"
+            + "                    E\r\n"
+            + "                    I\r\n"
+            + "                      E\r\n"
+            + "                      E\r\n"
+            + "                      TCTTTTACATGAGAT\r\n"
+            + "                      TCTTTTACATTTT\r\n"
+            + "                      E\r\n"
+            + "                    E\r\n"
+            + "                  E\r\n"
+            + "                  E\r\n"
+            + "                  E\r\n"
+            + "                  E\r\n"
+            + "                E\r\n"
+            + "                E\r\n"
+            + "                E\r\n"
+            + "              E\r\n"
+            + "              E\r\n"
+            + "              E\r\n"
+            + "              E\r\n"
+            + "            E\r\n"
+            + "          E\r\n"
+            + "        E\r\n"
+            + "      E\r\n"
+            + "    E\r\n"
+            + "    TTTAAGTACATTTGA\r\n"
+            + "    T\r\n"
+            + "  E";
+        console = systemOut().getHistory();
+        assertFuzzyEquals(console, output);
+        
+        
+        /*
         // FW -> leaf
         leaf2 = leaf2.insert("A", 0);
 
@@ -99,6 +224,27 @@ public class LeafNodeTest extends TestCase {
         assertFuzzyEquals("sequence AA inserted at level 2", systemOut()
             .getHistory());
         systemOut().clearHistory();
+        
+        leaf2 = leaf2.insert("CC", 0);
+
+        assertFuzzyEquals("sequence CC inserted at level 2", systemOut()
+            .getHistory());
+        systemOut().clearHistory();
+        
+        leaf2 = leaf2.insert("GGTGT", 0);
+
+        assertFuzzyEquals("sequence GGTGT inserted at level 2", systemOut()
+            .getHistory());
+        systemOut().clearHistory();
+        
+        leaf2 = leaf2.insert("TGTGT", 0);
+
+        assertFuzzyEquals("sequence TGTGT inserted at level 2", systemOut()
+            .getHistory());
+        systemOut().clearHistory();
+        
+        leaf2.print(0, "");
+        */
     }
 
 

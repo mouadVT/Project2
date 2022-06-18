@@ -22,7 +22,7 @@ public class InternalnodeTest extends TestCase {
      * Test the insert() method.
      */
     public void testInsert() {
-        systemOut().clearHistory(); 
+        systemOut().clearHistory();
         interNode.insert("A", 0);
         interNode.insert("A", 0);
         interNode.insert("C", 0);
@@ -35,42 +35,17 @@ public class InternalnodeTest extends TestCase {
         interNode.insert("TATATA", 0);
         systemOut().clearHistory();
         interNode.print(0, "");
-        String output = "I\r\n" + 
-            "  I\r\n" + 
-            "    I\r\n" + 
-            "      AAA\r\n" + 
-            "      E\r\n" + 
-            "      E\r\n" + 
-            "      E\r\n" + 
-            "      AA\r\n" + 
-            "    E\r\n" + 
-            "    E\r\n" + 
-            "    E\r\n" + 
-            "    A\r\n" + 
-            "  I\r\n" + 
-            "    E\r\n" + 
-            "    CC\r\n" + 
-            "    E\r\n" + 
-            "    E\r\n" + 
-            "    C\r\n" + 
-            "  I\r\n" + 
-            "    E\r\n" + 
-            "    E\r\n" + 
-            "    GG\r\n" + 
-            "    E\r\n" + 
-            "    G\r\n" + 
-            "  I\r\n" + 
-            "    TATATA\r\n" + 
-            "    E\r\n" + 
-            "    E\r\n" + 
-            "    E\r\n" + 
-            "    T\r\n" + 
-            "  E";
+        String output = "I\r\n" + "  I\r\n" + "    I\r\n" + "      AAA\r\n"
+            + "      E\r\n" + "      E\r\n" + "      E\r\n" + "      AA\r\n"
+            + "    E\r\n" + "    E\r\n" + "    E\r\n" + "    A\r\n" + "  I\r\n"
+            + "    E\r\n" + "    CC\r\n" + "    E\r\n" + "    E\r\n"
+            + "    C\r\n" + "  I\r\n" + "    E\r\n" + "    E\r\n" + "    GG\r\n"
+            + "    E\r\n" + "    G\r\n" + "  I\r\n" + "    TATATA\r\n"
+            + "    E\r\n" + "    E\r\n" + "    E\r\n" + "    T\r\n" + "  E";
         String console = systemOut().getHistory();
         assertFuzzyEquals(console, output);
     }
 
-    
 
     /**
      * Test the print method.
@@ -130,8 +105,8 @@ public class InternalnodeTest extends TestCase {
         interNode.search("C", 0);
         interNode.search("G", 0);
         interNode.search("T", 0);
-        interNode.search("E", 0); 
-        
+        interNode.search("E", 0);
+
         interNode.insert("A", 0);
         interNode.insert("A", 0);
         interNode.insert("C", 0);
@@ -143,7 +118,7 @@ public class InternalnodeTest extends TestCase {
         interNode.insert("CC", 0);
         interNode.insert("TT", 0);
         interNode.insert("TTTA", 0);
-        
+
         interNode.search("A", 0);
         interNode.search("A", 0);
         interNode.search("C", 0);
@@ -160,54 +135,32 @@ public class InternalnodeTest extends TestCase {
         interNode.search("TTTA ", 0);
         interNode.search("TATATA", 0);
         interNode.search("TT", 0);
-        String console = systemOut().getHistory(); 
-      String output = "no sequence found\r\n" + 
-          "no sequence found\r\n" + 
-          "no sequence found\r\n" + 
-          "no sequence found\r\n" + 
-          "no sequence found\r\n" + 
-          "sequence A inserted at level 1\r\n" + 
-          "sequence A already exists\r\n" + 
-          "sequence C inserted at level 1\r\n" + 
-          "sequence AA inserted at level 2\r\n" + 
-          "sequence T inserted at level 1\r\n" + 
-          "sequence AAA inserted at level 3\r\n" + 
-          "sequence G inserted at level 1\r\n" + 
-          "sequence GG inserted at level 2\r\n" + 
-          "sequence CC inserted at level 2\r\n" + 
-          "sequence TT inserted at level 2\r\n" + 
-          "sequence TTTA inserted at level 3\r\n" + 
-          "sequence: AAA\r\n" + 
-          "sequence: AA\r\n" + 
-          "sequence: A\r\n" + 
-          "sequence: AAA\r\n" + 
-          "sequence: AA\r\n" + 
-          "sequence: A\r\n" + 
-          "sequence: CC\r\n" + 
-          "sequence: C\r\n" + 
-          "sequence: AAA\r\n" + 
-          "sequence: AA\r\n" + 
-          "sequence: AAA\r\n" + 
-          "sequence: GG\r\n" + 
-          "sequence: G\r\n" + 
-          "sequence GG already exists\r\n" + 
-          "sequence: CC\r\n" + 
-          "sequence: TTTA\r\n" + 
-          "sequence: TT\r\n" + 
-          "sequence: T\r\n" + 
-          "no sequence found\r\n" + 
-          "sequence: GG\r\n" + 
-          "sequence: G\r\n" + 
-          "sequence: GG\r\n" + 
-          "sequence: CC\r\n" + 
-          "no sequence found\r\n" + 
-          "no sequence found\r\n" + 
-          "sequence: TTTA\r\n" + 
-          "sequence: TT";
-      assertFuzzyEquals(console, output);
-      systemOut().clearHistory();
-        
-        
+        String console = systemOut().getHistory();
+        String output = "no sequence found\r\n" + "no sequence found\r\n"
+            + "no sequence found\r\n" + "no sequence found\r\n"
+            + "no sequence found\r\n" + "sequence A inserted at level 1\r\n"
+            + "sequence A already exists\r\n"
+            + "sequence C inserted at level 1\r\n"
+            + "sequence AA inserted at level 2\r\n"
+            + "sequence T inserted at level 1\r\n"
+            + "sequence AAA inserted at level 3\r\n"
+            + "sequence G inserted at level 1\r\n"
+            + "sequence GG inserted at level 2\r\n"
+            + "sequence CC inserted at level 2\r\n"
+            + "sequence TT inserted at level 2\r\n"
+            + "sequence TTTA inserted at level 3\r\n" + "sequence: AAA\r\n"
+            + "sequence: AA\r\n" + "sequence: A\r\n" + "sequence: AAA\r\n"
+            + "sequence: AA\r\n" + "sequence: A\r\n" + "sequence: CC\r\n"
+            + "sequence: C\r\n" + "sequence: AAA\r\n" + "sequence: AA\r\n"
+            + "sequence: AAA\r\n" + "sequence: GG\r\n" + "sequence: G\r\n"
+            + "sequence GG already exists\r\n" + "sequence: CC\r\n"
+            + "sequence: TTTA\r\n" + "sequence: TT\r\n" + "sequence: T\r\n"
+            + "no sequence found\r\n" + "sequence: GG\r\n" + "sequence: G\r\n"
+            + "sequence: GG\r\n" + "sequence: CC\r\n" + "no sequence found\r\n"
+            + "no sequence found\r\n" + "sequence: TTTA\r\n" + "sequence: TT";
+        assertFuzzyEquals(console, output);
+        systemOut().clearHistory();
+
     }
 
 
@@ -252,74 +205,6 @@ public class InternalnodeTest extends TestCase {
         output = "sequence AC removed";
         assertFuzzyEquals(console, output);
         systemOut().clearHistory();
-
-//
-// interNode.print(0, "");
-// String console = systemOut().getHistory();
-// String output = "I\r\n" +
-// " A\r\n" +
-// " C\r\n" +
-// " G\r\n" +
-// " T\r\n" +
-// " E";
-// assertFuzzyEquals(console, output);
-// systemOut().clearHistory();
-// interNode.remove("A", 0);
-// interNode.print(0, "");
-// console = systemOut().getHistory();
-// output ="sequence A removed\r\n" +
-// "I\r\n" +
-// " E\r\n" +
-// " C\r\n" +
-// " G\r\n" +
-// " T\r\n" +
-// " E";
-// assertFuzzyEquals(console, output);
-// systemOut().clearHistory();
-// interNode.remove("A", 0);
-// interNode.print(0, "");
-// console = systemOut().getHistory();
-// output ="sequence A does not exist\r\n" +
-// "I\r\n" +
-// " E\r\n" +
-// " C\r\n" +
-// " G\r\n" +
-// " T\r\n" +
-// " E";
-// assertFuzzyEquals(console, output);
-// systemOut().clearHistory();
-//
-//
-// interNode.insert("A", 0);
-// interNode.insert("C", 0);
-// interNode.insert("T", 0);
-// interNode.insert("G", 0);
-// systemOut().clearHistory();
-// console = systemOut().getHistory();
-// output ="I\r\n" +
-// " I\r\n" +
-// " AAA\r\n" +
-// " E\r\n" +
-// " E\r\n" +
-// " E\r\n" +
-// " A\r\n" +
-// " C\r\n" +
-// " G\r\n" +
-// " T\r\n" +
-// " E";
-// assertFuzzyEquals(console, output);
-// systemOut().clearHistory();
-// interNode.remove("", 0);
-// interNode.print(0, "");
-// console = systemOut().getHistory();
-// output ="sequence A removed\r\n" +
-// "I\r\n" +
-// " E\r\n" +
-// " C\r\n" +
-// " G\r\n" +
-// " T\r\n" +
-// " E";
-// // assertFuzzyEquals(console, output);
     }
 
 
@@ -388,5 +273,96 @@ public class InternalnodeTest extends TestCase {
         output = "I\r\n" + "  G\r\n" + "  G\r\n" + "  G\r\n" + "  G\r\n"
             + "  G";
         assertFuzzyEquals(console, output);
+    }
+
+
+    /**
+     * Tests returnLeafNode() method.
+     */
+    public void testReturnLeafNode() {
+        Internalnode interNode2 = new Internalnode();
+        Internalnode interNode3 = new Internalnode();
+        Internalnode interNode4 = new Internalnode();
+        Internalnode interNode5 = new Internalnode();
+
+        systemOut().clearHistory();
+
+        interNode.insert("A", 0);
+
+        ((Internalnode)interNode).numOfLeafNodes();
+        ((Internalnode)interNode).numOfFlyNodes();
+
+        ((Internalnode)interNode).returnLeafNode();
+        assertFuzzyEquals("sequence A inserted at level 1", systemOut()
+            .getHistory());
+
+        systemOut().clearHistory();
+
+        interNode2.insert("C", 0);
+
+        ((Internalnode)interNode2).numOfLeafNodes();
+        ((Internalnode)interNode2).numOfFlyNodes();
+
+        ((Internalnode)interNode2).returnLeafNode();
+        assertFuzzyEquals("sequence C inserted at level 1", systemOut()
+            .getHistory());
+
+        systemOut().clearHistory();
+
+        interNode3.insert("G", 0);
+
+        ((Internalnode)interNode3).numOfLeafNodes();
+        ((Internalnode)interNode3).numOfFlyNodes();
+
+        ((Internalnode)interNode3).returnLeafNode();
+        assertFuzzyEquals("sequence G inserted at level 1", systemOut()
+            .getHistory());
+
+        systemOut().clearHistory();
+
+        interNode4.insert("T", 0);
+
+        ((Internalnode)interNode4).numOfLeafNodes();
+        ((Internalnode)interNode4).numOfFlyNodes();
+
+        ((Internalnode)interNode4).returnLeafNode();
+        assertFuzzyEquals("sequence T inserted at level 1", systemOut()
+            .getHistory());
+
+        systemOut().clearHistory();
+
+        interNode5.insert("A", 0);
+        interNode5.insert("AA", 0);
+
+        // interNode5.print(0, "");
+
+        ((Internalnode)interNode5).numOfLeafNodes();
+        ((Internalnode)interNode5).numOfFlyNodes();
+
+        ((Internalnode)interNode5).returnLeafNode();
+        assertFuzzyEquals("sequence A inserted at level 1\r\n"
+            + "sequence AA inserted at level 2", systemOut().getHistory());
+    }
+
+
+    /**
+     * Tests numOfLeafNodes() method.
+     */
+    public void testNumOfLeafNodes() {
+        interNode.insert("A", 0);
+        interNode.insert("C", 0);
+
+        assertEquals(2, ((Internalnode)interNode).numOfLeafNodes());
+    }
+
+
+    /**
+     * Tests numOfFlyNodes() method.
+     */
+    public void testNumOfFlyNodes() {
+        interNode.insert("A", 0);
+        interNode.insert("C", 0);
+
+        assertEquals(3, ((Internalnode)interNode).numOfFlyNodes());
     }
 }
