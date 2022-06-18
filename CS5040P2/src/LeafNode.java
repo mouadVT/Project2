@@ -21,10 +21,12 @@ public class LeafNode extends Baseclass {
     public LeafNode(String seq, int d) {
         this.data = seq;
     }
-    
+
+
     public LeafNode() {
-        
+        // empty
     }
+
 
     /**
      * Inserts sequence into leaf node
@@ -57,9 +59,6 @@ public class LeafNode extends Baseclass {
                 else if (data.charAt(level) == 'T') {
                     ((Internalnode)intNode).setTheLeafNode(data, level, 'T');
                 }
-                //else {
-                //    ((Internalnode)intNode).setTheLeafNode(data, level, '$');
-                //}
             }
             else {
                 ((Internalnode)intNode).setTheLeafNode(data, level, '$');
@@ -133,7 +132,6 @@ public class LeafNode extends Baseclass {
     }
 
 
-    
     /**
      * Removes a sequence from the tree.
      * 
