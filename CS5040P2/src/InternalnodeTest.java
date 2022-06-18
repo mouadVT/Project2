@@ -70,6 +70,7 @@ public class InternalnodeTest extends TestCase {
         assertFuzzyEquals(console, output);
     }
 
+    
 
     /**
      * Test the print method.

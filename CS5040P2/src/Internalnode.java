@@ -80,7 +80,8 @@ public class Internalnode extends Baseclass {
         dollar.print(depth + 1, entry);
     }
 
-
+   
+    
     /**
      * Finds all sequences that match the given sequence.
      * 
